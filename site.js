@@ -45,3 +45,15 @@ form.addEventListener("submit", event => {
   setTimeout(() => URL.revokeObjectURL(url), 1000);
   feedback.textContent = "Запрос подготовлен. Проверьте загрузки браузера.";
 });
+
+if ("IntersectionObserver" in window && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+  const reveal = new IntersectionObserver(entries => {
+    for (const entry of entries) {
+      if (!entry.isIntersecting) continue;
+      entry.target.classList.add("reveal-in");
+      reveal.unobserve(entry.target);
+    }
+  }, { threshold: 0.12 });
+
+  document.querySelectorAll("[data-reveal]").forEach(element => reveal.observe(element));
+}

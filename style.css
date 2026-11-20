@@ -135,14 +135,14 @@ img {
 }
 
 .primary-nav a,
-.footer-layout > a:last-child {
+.footer-nav a {
   text-decoration: none;
   font-size: .9375rem;
   font-weight: 560;
 }
 
 .primary-nav a:hover,
-.footer-layout > a:last-child:hover {
+.footer-nav a:hover {
   color: var(--red);
   text-decoration: underline;
   text-underline-offset: 5px;
@@ -221,47 +221,7 @@ img {
   line-height: 1.48;
 }
 
-.hero-figure { animation: enter 640ms 70ms ease-out both; }
-
-.photo-stage {
-  display: block;
-  position: relative;
-  overflow: hidden;
-  isolation: isolate;
-  aspect-ratio: 1.35;
-  min-width: 0;
-  background: var(--steel);
-}
-
-.photo-stage img {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  padding: 12px;
-  mix-blend-mode: multiply;
-  transition: transform 420ms ease;
-}
-
-.photo-link:hover img { transform: scale(1.025); }
-
-.hero-figure figcaption {
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 2px 12px;
-  padding-top: 10px;
-  color: var(--muted);
-  font-size: .875rem;
-}
-
-.hero-figure figcaption a {
-  font-weight: 690;
-  color: var(--blue);
-  text-underline-offset: 4px;
-}
+.hero .model-index { animation: enter 640ms 100ms ease-out both; }
 
 @keyframes enter {
   from { opacity: 0; transform: translateY(8px); }
@@ -281,7 +241,7 @@ h2 {
 
 .model-index {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: minmax(0, 1fr);
   background: var(--blue);
   color: var(--white);
 }
@@ -292,12 +252,12 @@ h2 {
   align-items: start;
   justify-content: center;
   gap: 5px;
-  padding: 22px clamp(22px, 3.3vw, 46px);
+  padding: clamp(20px, 2.8vw, 36px) clamp(20px, 3.3vw, 46px);
   text-decoration: none;
   transition: background-color 180ms ease;
 }
 
-.model-link:first-child { border-right: 1px solid #4d627b; }
+.model-link:first-child { border-bottom: 1px solid #4d627b; }
 .model-link:hover { background: #204569; }
 
 .model-link:focus-visible {
@@ -390,6 +350,35 @@ h2 {
 }
 
 .instrument-figure img { object-fit: contain; }
+
+.instrument-figure-sem50 {
+  background: var(--steel);
+  margin-top: 24px;
+}
+
+.instrument-figure-sem50 img {
+  aspect-ratio: 1.18;
+  padding: 12px;
+  mix-blend-mode: multiply;
+}
+
+.instrument-figure figcaption {
+  padding: 8px 12px;
+  color: var(--muted);
+  border-top: 1px solid var(--line);
+  font-size: .875rem;
+}
+
+.reveal-in { animation: section-enter 440ms cubic-bezier(.2, .72, .27, 1) both; }
+
+@keyframes section-enter {
+  from { opacity: .55; transform: translateY(12px); }
+  to { opacity: 1; transform: none; }
+}
+
+details[open] > :not(summary) {
+  animation: section-enter 220ms ease-out both;
+}
 
 .instrument-detail h4 {
   margin-bottom: 13px;
@@ -499,7 +488,43 @@ details > .technical-list {
 
 .request-layout .button { flex: 0 0 auto; }
 
-.site-footer { background: var(--paper); }
+.company-section { background: var(--paper); }
+
+.company-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: clamp(28px, 6vw, 92px);
+  padding-block: 56px;
+}
+
+.company-layout h2 { font-size: clamp(1.85rem, 3.35vw, 2.75rem); }
+
+.contact-list {
+  display: grid;
+  gap: 15px;
+  margin: 23px 0 0;
+}
+
+.contact-list dt { color: var(--muted); font-size: .875rem; }
+.contact-list dd { margin: 2px 0 0; font-size: clamp(1.12rem, 2.3vw, 1.58rem); font-weight: 640; }
+.contact-list a, .company-link { text-underline-offset: .2em; text-decoration-thickness: 1px; }
+.contact-list a:hover, .company-link:hover { color: var(--red); }
+
+.company-name { margin-top: 21px; font-weight: 650; }
+.company-details { margin: 10px 0 14px; }
+
+.company-details > div {
+  display: grid;
+  grid-template-columns: 4.5rem minmax(0, 1fr);
+  gap: 6px;
+  padding-block: 4px;
+}
+
+.company-details dt { color: var(--muted); }
+.company-details dd { margin: 0; font-variant-numeric: tabular-nums; }
+
+.site-footer { background: var(--paper); border-top: 1px solid var(--line); }
+.footer-nav { display: flex; flex-wrap: wrap; gap: 8px 24px; }
 
 .footer-layout {
   display: flex;
@@ -605,7 +630,6 @@ details > .technical-list {
   .hero-layout { grid-template-columns: minmax(0, 1fr); gap: 27px; padding-block: 37px 26px; }
   .hero h1 { font-size: clamp(2.65rem, 8.9vw, 5rem); }
   .hero-copy p { margin-block: 17px 21px; }
-  .photo-stage { aspect-ratio: 1.55; }
   .catalog { padding-block: 45px 50px; }
   .instrument { gap: 35px; padding-block: 44px; }
 }
@@ -615,23 +639,22 @@ details > .technical-list {
   .header-layout { grid-template-columns: minmax(0, 1fr) auto; gap: 12px 8px; padding-top: 13px; min-height: 0; }
   .header-layout > .button { min-height: 42px; padding-inline: 12px; }
   .primary-nav { grid-row: 2; grid-column: 1 / -1; justify-content: space-between; border-top: 1px solid var(--line); padding-block: 8px 9px; }
-  .primary-nav a { min-height: 25px; }
+  .primary-nav a { min-height: 25px; font-size: .875rem; }
+  .primary-nav { gap: 8px; }
   .brand { gap: 8px; }
   .brand-mark { width: 25px; height: 25px; flex-basis: 25px; }
   .hero h1 { font-size: clamp(2.42rem, 9.5vw, 4.9rem); }
-  .photo-stage { aspect-ratio: 1.27; }
   .model-link { justify-content: start; padding: 16px 13px; }
   .model-link span { font-size: .875rem; line-height: 1.35; }
   .instrument { grid-template-columns: minmax(0, 1fr); gap: 26px; }
   .instrument-figure { max-width: 375px; }
+  .company-layout { grid-template-columns: minmax(0, 1fr); padding-block: 35px; }
+  .company-layout > section + section { border-top: 1px solid var(--line); padding-top: 27px; }
   .request-layout { flex-direction: column; align-items: start; padding-block: 33px; }
 }
 
 @media (max-width: 385px) {
   .hero h1 { font-size: clamp(2rem, 10.3vw, 2.45rem); }
-  .hero-figure figcaption { font-size: .8125rem; }
-  .model-index { grid-template-columns: minmax(0, 1fr); }
-  .model-link:first-child { border-right: 0; border-bottom: 1px solid #4d627b; }
   .specifications > div { grid-template-columns: minmax(0, 1fr); gap: 3px; }
   .form-row { grid-template-columns: minmax(0, 1fr); gap: 0; }
 }

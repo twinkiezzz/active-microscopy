@@ -7,8 +7,8 @@
   <meta name="theme-color" content="#f8f9fa">
   <title>Активная микроскопия — электронные микроскопы SEM-50 и SEM-200</title>
   <link rel="preload" href="fonts/golos-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="style.css?v=2">
-  <script src="site.js?v=2" defer></script>
+  <link rel="stylesheet" href="style.css?v=3">
+  <script src="site.js?v=3" defer></script>
 </head>
 <body id="top">
   <a class="skip-link" href="#main">К содержанию</a>
@@ -22,6 +22,7 @@
         <a href="#catalog">Каталог</a>
         <a href="#sem-50">SEM-50</a>
         <a href="#sem-200">SEM-200</a>
+        <a href="#contact">Контакты</a>
       </nav>
       <button class="button button-outline" type="button" data-quote>Запросить КП</button>
     </div>
@@ -35,12 +36,16 @@
           <p>Растровая и просвечивающая микроскопия для лабораторий и исследовательских центров.</p>
           <a class="button button-red" href="#catalog">Смотреть каталог</a>
         </div>
-        <figure class="hero-figure">
-          <a class="photo-stage photo-link" href="#sem-50" aria-label="Открыть характеристики SEM-50">
-            <img src="sem-50.jpg" alt="Растровый микроскоп SEM-50 со столом управления и двумя мониторами" width="1254" height="1254" fetchpriority="high">
+        <nav class="model-index" aria-label="Модели микроскопов">
+          <a class="model-link" href="#sem-50">
+            <strong>SEM-50</strong>
+            <span>Растровый электронный микроскоп</span>
           </a>
-          <figcaption><a href="#sem-50">SEM-50</a><span>Иллюстрация конфигурации</span></figcaption>
-        </figure>
+          <a class="model-link" href="#sem-200">
+            <strong>SEM-200</strong>
+            <span>Просвечивающий электронный микроскоп</span>
+          </a>
+        </nav>
       </div>
     </section>
 
@@ -48,16 +53,6 @@
       <div class="catalog-header">
         <h2 id="catalog-heading">Каталог микроскопов</h2>
       </div>
-      <nav class="model-index" aria-label="Модели микроскопов">
-        <a class="model-link" href="#sem-50">
-          <strong>SEM-50</strong>
-          <span>Растровый электронный микроскоп</span>
-        </a>
-        <a class="model-link" href="#sem-200">
-          <strong>SEM-200</strong>
-          <span>Просвечивающий электронный микроскоп</span>
-        </a>
-      </nav>
 
       <article class="instrument" id="sem-50" aria-labelledby="sem-50-heading">
         <div class="instrument-summary">
@@ -69,11 +64,15 @@
             <dd><strong>3 нм</strong><span>SE-детектор, 30 кВ</span></dd>
           </dl>
           <button class="button button-outline" type="button" data-quote="SEM-50">Запросить КП на SEM-50</button>
+          <figure class="instrument-figure instrument-figure-sem50" data-reveal>
+            <img src="sem-50.jpg" alt="Растровый микроскоп SEM-50 со столом управления и двумя мониторами" width="1254" height="1254" loading="lazy">
+            <figcaption>Иллюстрация конфигурации</figcaption>
+          </figure>
         </div>
 
         <div class="instrument-detail">
           <h4>Технические характеристики</h4>
-          <dl class="specifications">
+          <dl class="specifications" data-reveal>
             <div>
               <dt>Источник электронов</dt>
               <dd>Термоэмиссионная пушка с вольфрамовым катодом или катодом из гексаборида лантана</dd>
@@ -113,7 +112,7 @@
           <p class="method">Просвечивающий электронный микроскоп</p>
           <h3 id="sem-200-heading">SEM-200</h3>
           <p class="instrument-use">Для исследования внутренней структуры тонких образцов.</p>
-          <figure class="instrument-figure">
+          <figure class="instrument-figure" data-reveal>
             <img src="sem-200.jpg" alt="SEM-200 с электронной колонной, рабочей станцией и блоком оборудования" width="495" height="453" loading="lazy">
           </figure>
           <button class="button button-outline" type="button" data-quote="SEM-200">Запросить КП на SEM-200</button>
@@ -121,7 +120,7 @@
 
         <div class="instrument-detail">
           <h4 id="specifications">Технические характеристики</h4>
-          <dl class="specifications">
+          <dl class="specifications" data-reveal>
             <div><dt>Артикул</dt><dd>SEM200</dd></div>
             <div><dt>Электропитание</dt><dd>380 / 220 В, 50 Гц</dd></div>
           </dl>
@@ -165,7 +164,7 @@
       </article>
     </section>
 
-    <section class="request-section" id="contact" aria-labelledby="request-heading">
+    <section class="request-section" id="quote-request" aria-labelledby="request-heading">
       <div class="shell request-layout">
         <div>
           <h2 id="request-heading">Коммерческое предложение</h2>
@@ -174,12 +173,38 @@
         <button class="button button-red" type="button" data-quote>Подготовить запрос</button>
       </div>
     </section>
+
+    <div class="company-section">
+      <div class="shell company-layout">
+        <section id="contact" aria-labelledby="contact-heading" data-reveal>
+          <h2 id="contact-heading">Контакты</h2>
+          <dl class="contact-list">
+            <div><dt>Почта</dt><dd><a href="mailto:info@amicro.ru">info@amicro.ru</a></dd></div>
+            <div><dt>Телефон</dt><dd><a href="tel:+74993906678">+7 499 390 66 78</a></dd></div>
+          </dl>
+        </section>
+        <section id="about" aria-labelledby="about-heading" data-reveal>
+          <h2 id="about-heading">О компании</h2>
+          <p class="company-name">ООО «Активная микроскопия»</p>
+          <dl class="company-details">
+            <div><dt>ИНН</dt><dd>7735215196</dd></div>
+            <div><dt>КПП</dt><dd>773501001</dd></div>
+            <div><dt>ОГРН</dt><dd>1267700362830</dd></div>
+          </dl>
+          <a class="company-link" href="https://checko.ru/company/aktivnaya-mikroskopiya-1267700362830">Карточка компании на Checko</a>
+        </section>
+      </div>
+    </div>
   </main>
 
   <footer class="site-footer">
     <div class="shell footer-layout">
       <a class="brand" href="#top"><span class="brand-mark" aria-hidden="true"></span><span>Активная<br>микроскопия</span></a>
-      <a href="#catalog">Каталог оборудования</a>
+      <nav class="footer-nav" aria-label="Навигация в подвале">
+        <a href="#catalog">Каталог</a>
+        <a href="#contact">Контакты</a>
+        <a href="#about">О компании</a>
+      </nav>
     </div>
   </footer>
 
