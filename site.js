@@ -2,15 +2,33 @@ const dialog = document.querySelector("#quote");
 const form = document.querySelector("#quote-form");
 const modelField = form.elements.namedItem("model");
 const nameField = form.elements.namedItem("name");
+const emailField = form.elements.namedItem("email");
+const title = dialog.querySelector("h2");
+const submitButton = form.querySelector("[type=submit]");
+const quoteFields = form.querySelector("fieldset");
 const feedback = form.querySelector(".form-status");
 const fallback = form.querySelector(".copy-fallback");
 const recipient = "info@amicro.ru";
+const endpoint = form.getAttribute("action");
+let topic = "Вопрос о микроскопах";
+
+if (endpoint) {
+  emailField.closest("label").hidden = false;
+  emailField.disabled = false;
+  emailField.required = true;
+  submitButton.textContent = "Отправить заявку";
+}
 
 document.querySelectorAll("[data-quote]").forEach(button => {
   button.addEventListener("click", () => {
-    modelField.value = button.dataset.quote;
-    feedback.textContent = "";
-    fallback.hidden = true;
+    if (!quoteFields.disabled) {
+      const pilot = button.hasAttribute("data-pilot");
+      title.textContent = pilot ? "Пилотное партнёрство" : "Обсудить проект";
+      topic = pilot ? "Пилотное партнёрство" : "Вопрос о микроскопах";
+      modelField.value = button.dataset.quote;
+      feedback.textContent = "";
+      fallback.hidden = true;
+    }
     dialog.showModal();
     (modelField.value ? nameField : modelField).focus();
   });
@@ -20,17 +38,18 @@ document.querySelectorAll("dialog").forEach(panel => {
   panel.querySelector(".dialog-close").addEventListener("click", () => panel.close());
 });
 
-function readDraft() {
-  const fields = new FormData(form);
+function readDraft(fields = new FormData(form)) {
   const model = fields.get("model");
-  const subject = "Активная микроскопия — " + model;
+  const subject = topic + " — " + model;
   const organization = fields.get("company").trim();
+  const email = fields.get("email");
   const body = [
     "Здравствуйте!",
     "",
     "Меня интересует проект: " + model,
     "Имя: " + fields.get("name").trim(),
     ...(organization ? ["Организация: " + organization] : []),
+    ...(email ? ["Почта для ответа: " + email] : []),
     "",
     "Задача исследования:",
     fields.get("message").trim()
@@ -38,10 +57,38 @@ function readDraft() {
   return { subject, body };
 }
 
-form.addEventListener("submit", event => {
+form.addEventListener("submit", async event => {
   event.preventDefault();
-  const { subject, body } = readDraft();
-  window.location.href = "mailto:" + recipient + "?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
+  if (quoteFields.disabled) return;
+  const fields = new FormData(form);
+  const { subject, body } = readDraft(fields);
+  if (!endpoint) {
+    window.location.href = "mailto:" + recipient + "?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
+    return;
+  }
+
+  fields.set("subject", subject);
+  fields.set("topic", topic);
+  quoteFields.disabled = true;
+  submitButton.textContent = "Отправляем…";
+  feedback.textContent = "";
+  try {
+    const response = await fetch(endpoint, {
+      method: "POST",
+      headers: { Accept: "application/json" },
+      body: fields,
+      signal: AbortSignal.timeout(15000)
+    });
+    if (!response.ok) throw new Error("Form submission failed");
+    form.reset();
+    fallback.hidden = true;
+    feedback.textContent = "Заявка отправлена. Ответим на указанную почту.";
+  } catch {
+    feedback.textContent = "Не удалось подтвердить отправку. Можно повторить или скопировать текст и написать нам на почту.";
+  } finally {
+    quoteFields.disabled = false;
+    submitButton.textContent = "Отправить заявку";
+  }
 });
 
 form.querySelector("[data-copy]").addEventListener("click", async () => {
