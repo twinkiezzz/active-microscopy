@@ -666,3 +666,57 @@ details > .technical-list {
     transition: none !important;
   }
 }
+
+.button-primary { background: var(--blue); color: var(--white); border-color: var(--blue); }
+.button-primary:hover { background: #224d79; border-color: #224d79; }
+.button-inverse { background: var(--white); color: var(--blue); }
+.button-inverse:hover { background: var(--steel); }
+.status { color: var(--red); font-size: .875rem; font-weight: 700; }
+.hero-copy .status { margin: 0 0 17px; font-size: .875rem; letter-spacing: .045em; text-transform: uppercase; color: var(--red); }
+.hero-figure { min-width: 0; background: var(--steel); }
+.hero-figure img { height: clamp(290px, 37vw, 470px); padding: 16px; object-fit: contain; mix-blend-mode: multiply; }
+.hero-figure figcaption { padding: 10px 14px; border-top: 1px solid var(--line); font-size: .875rem; color: var(--muted); }
+.model-index { grid-template-columns: repeat(2,minmax(0,1fr)); }
+.model-link:first-child { border-bottom: 0; border-right: 1px solid #4d627b; }
+.model-link span:last-child { font-size: .875rem; color: #c9d9e8; }
+.instrument-summary .status { margin-bottom: 10px; }
+.instrument-use { margin-bottom: 16px; }
+.instrument-figure-sem50 { margin-top: 0; }
+.instrument-figure-sem50 img { aspect-ratio: 495 / 453; }
+.image-link { display: block; overflow: hidden; }
+.image-link img { transition: filter 180ms ease, transform 300ms ease; }
+.image-link:hover img { transform: scale(1.025); filter: contrast(1.04); }
+.model-note { margin: 0 0 15px; color: var(--muted); }
+.metric { color: var(--red); font-size: 1.7rem; margin-right: .25em; }
+.comparison { padding-block: 56px; background: var(--paper); border-block: 1px solid var(--line); }
+.comparison-table { table-layout: fixed; width: 100%; margin: 22px 0 18px; border-collapse: collapse; text-align: left; }
+.comparison-table :is(th,td) { vertical-align: top; padding: 10px 11px; border-bottom: 1px solid var(--line); overflow-wrap: anywhere; }
+.comparison-table th { font-weight: 650; }
+.comparison-table thead th { background: var(--steel); }
+.comparison-table :is(a,.text-link), .text-link { color: var(--blue); text-underline-offset: .2em; }
+.research { padding-block: 54px; }
+.research p { margin-top: 12px; color: var(--muted); max-width: 64ch; }
+.company-name { font-weight: 400; }
+.footer-legal { flex-basis: 100%; font-size: .875rem; color: var(--muted); }
+.dialog-actions { display: flex; flex-wrap: wrap; gap: 9px; }
+.copy-fallback { margin-top: 12px; }
+.copy-fallback[hidden] { display: none; }
+.image-dialog { width: min(760px,calc(100% - 24px)); max-height: calc(100% - 24px); border: 1px solid var(--line); padding: 20px; color: var(--ink); }
+.image-dialog[open] { animation: enter 180ms ease-out both; }
+.image-dialog::backdrop { background: #16263bb5; }
+.image-dialog h2 { font-size: 1.28rem; }
+.image-viewport { margin-block: 12px; background: var(--paper); overflow: auto; max-height: 62vh; }
+.image-viewport img { display: block; width: 100%; max-height: 62vh; object-fit: contain; transition: width 240ms ease; }
+.image-viewport.is-zoomed img { width: 170%; max-height: none; }
+@media (max-width: 790px) { .hero-figure img { height: min(79vw,430px); } }
+@media (max-width: 620px) {
+  .site-header { position: sticky; top: 0; z-index: 4; }
+  :where(article, section, h4, .config-list)[id] { scroll-margin-top: 110px; }
+  .header-layout > .button { font-size: .875rem; max-width: 145px; }
+  .primary-nav a { font-size: .8125rem; }
+  .comparison-table { font-size: .875rem; }
+  .comparison-table :is(th,td) { padding-inline: 6px; }
+  .model-index { grid-template-columns: minmax(0,1fr); }
+  .model-link:first-child { border-right: 0; border-bottom: 1px solid #4d627b; }
+  .metrics { font-size: .9375rem; }
+}
