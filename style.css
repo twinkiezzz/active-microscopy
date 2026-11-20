@@ -507,8 +507,8 @@ details > .technical-list {
 
 .contact-list dt { color: var(--muted); font-size: .875rem; }
 .contact-list dd { margin: 2px 0 0; font-size: clamp(1.12rem, 2.3vw, 1.58rem); font-weight: 640; }
-.contact-list a, .company-link { text-underline-offset: .2em; text-decoration-thickness: 1px; }
-.contact-list a:hover, .company-link:hover { color: var(--red); }
+.contact-list a { text-underline-offset: .2em; text-decoration-thickness: 1px; }
+.contact-list a:hover { color: var(--red); }
 
 .company-name { margin-top: 21px; font-weight: 650; }
 .company-details { margin: 10px 0 14px; }
