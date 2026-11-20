@@ -113,7 +113,8 @@ function moveGlow(event) {
   if (glowFrame) return;
   glowFrame = requestAnimationFrame(() => {
     glowFrame = 0;
-    cursorGlow.style.transform = "translate3d(" + glowX + "px," + glowY + "px,0)";
+    cursorGlow.style.setProperty("--glow-x", (glowX / window.innerWidth * 100) + "%");
+    cursorGlow.style.setProperty("--glow-y", (glowY / window.innerHeight * 100) + "%");
     cursorGlow.classList.add("is-visible");
   });
 }

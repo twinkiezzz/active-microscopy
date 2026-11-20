@@ -244,18 +244,24 @@ dialog::backdrop { background: #101d2db8; }
   --signal-line: #e6b8c0;
 }
 
-.cursor-glow-layer { position: fixed; inset: 0; z-index: 3; overflow: hidden; pointer-events: none; }
+.cursor-glow-layer {
+  position: fixed;
+  inset: 0;
+  z-index: 5;
+  pointer-events: none;
+  mix-blend-mode: multiply;
+}
 
 .cursor-glow {
   position: absolute;
-  inset: 0 auto auto 0;
-  width: 340px;
-  height: 340px;
-  margin: -170px 0 0 -170px;
-  pointer-events: none;
+  inset: 0;
+  --glow-x: 50%;
+  --glow-y: 50%;
   opacity: 0;
-  background: radial-gradient(circle at 40% 44%, #e644551b, transparent 63%),
-    radial-gradient(circle at 63% 56%, #2776be20, transparent 67%);
+  background:
+    radial-gradient(ellipse 115% 95% at var(--glow-x) var(--glow-y), #2e77bd28, #2e77bd0b 53%, transparent 86%),
+    radial-gradient(ellipse 125% 95% at calc(100% - var(--glow-x)) calc(100% - var(--glow-y)), #db456427, #db45640a 55%, transparent 90%),
+    linear-gradient(110deg, #2e77bd09, transparent 48%, #db456409);
   transition: opacity 220ms ease-out;
 }
 
