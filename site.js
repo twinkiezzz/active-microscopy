@@ -5,6 +5,7 @@ const nameField = form.elements.namedItem("name");
 const emailField = form.elements.namedItem("email");
 const title = dialog.querySelector("h2");
 const submitButton = form.querySelector("[type=submit]");
+const copyButton = form.querySelector("[data-copy]");
 const quoteFields = form.querySelector("fieldset");
 const feedback = form.querySelector(".form-status");
 const fallback = form.querySelector(".copy-fallback");
@@ -16,7 +17,8 @@ if (endpoint) {
   emailField.closest("label").hidden = false;
   emailField.disabled = false;
   emailField.required = true;
-  submitButton.textContent = "Отправить заявку";
+  submitButton.textContent = "Отправить запрос";
+  copyButton.hidden = true;
 }
 
 document.querySelectorAll("[data-quote]").forEach(button => {
@@ -28,6 +30,7 @@ document.querySelectorAll("[data-quote]").forEach(button => {
       modelField.value = button.dataset.quote;
       feedback.textContent = "";
       fallback.hidden = true;
+      copyButton.hidden = Boolean(endpoint);
     }
     dialog.showModal();
     (modelField.value ? nameField : modelField).focus();
@@ -70,6 +73,7 @@ form.addEventListener("submit", async event => {
   fields.set("subject", subject);
   fields.set("topic", topic);
   quoteFields.disabled = true;
+  copyButton.hidden = true;
   submitButton.textContent = "Отправляем…";
   feedback.textContent = "";
   try {
@@ -84,14 +88,15 @@ form.addEventListener("submit", async event => {
     fallback.hidden = true;
     feedback.textContent = "Заявка отправлена. Ответим на указанную почту.";
   } catch {
+    copyButton.hidden = false;
     feedback.textContent = "Не удалось подтвердить отправку. Можно повторить или скопировать текст и написать нам на почту.";
   } finally {
     quoteFields.disabled = false;
-    submitButton.textContent = "Отправить заявку";
+    submitButton.textContent = "Отправить запрос";
   }
 });
 
-form.querySelector("[data-copy]").addEventListener("click", async () => {
+copyButton.addEventListener("click", async () => {
   if (!form.reportValidity()) return;
   const { subject, body } = readDraft();
   const text = "Кому: " + recipient + "\nТема: " + subject + "\n\n" + body;
