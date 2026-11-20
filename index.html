@@ -3,17 +3,17 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Активная микроскопия. Разработка растрового SEM-50 и просвечивающего SEM-200. Сравнение проектов, предварительные сведения и контакты.">
+  <meta name="description" content="Активная микроскопия в составе ГК «НТ-МДТ». Разработка электронных микроскопов SEM-50 и TEM-200 в Зеленограде, предварительные характеристики и пилотное тестирование.">
   <meta name="theme-color" content="#f6f7f9">
   <meta name="page-type" content="product">
   <meta name="site-kind" content="tech">
   <meta property="og:title" content="Активная микроскопия — электронные микроскопы">
-  <meta property="og:description" content="Растровый SEM-50 и просвечивающий SEM-200 в разработке.">
+  <meta property="og:description" content="Растровый SEM-50 и просвечивающий TEM-200 в разработке. Приглашаем лаборатории к пилотному тестированию.">
   <meta property="og:image" content="https://twinkiezzz.github.io/active-microscopy/sem-200.jpg?v=19">
   <title>Активная микроскопия — разработка электронных микроскопов</title>
   <link rel="preload" href="fonts/manrope-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="icon" type="image/png" sizes="48x48" href="favicon-amicro.png">
-  <link rel="stylesheet" href="style.css?v=20">
+  <link rel="stylesheet" href="style.css?v=21">
   <link rel="stylesheet" href="assets/motion/motion.css">
   <link rel="stylesheet" href="assets/moments/word-highlight/moment.css">
   <script>document.documentElement.classList.add('m-enter');setTimeout(()=>document.documentElement.classList.add('m-enter-done'),700)</script>
@@ -26,7 +26,13 @@
   <a class="skip-link" href="#main">К содержанию</a>
   <header class="site-header">
     <div class="shell header-layout">
-      <a class="brand" href="#top" aria-label="Активная микроскопия, главная"><img class="brand-symbol" src="brand-symbol.png" alt="" width="160" height="136"><span>Активная<br>микроскопия</span></a>
+      <a class="brand" href="#top">
+        <img class="brand-symbol" src="brand-symbol.png" alt="" width="160" height="136">
+        <span class="brand-copy">
+          <span>Активная<br>микроскопия</span>
+          <small class="brand-affiliation">Входит в Группу компаний «НТ-МДТ»</small>
+        </span>
+      </a>
       <nav class="primary-nav" aria-label="Основная навигация">
         <a href="#top">Главная</a><a href="#catalog">Модели</a><a href="#process">Как работаем</a><a href="#about">О компании</a><a href="#contact">Контакты</a>
       </nav>
@@ -39,12 +45,15 @@
       <div class="shell hero-layout">
         <div class="hero-head">
           <div>
-            <p class="status">Обе модели в разработке</p>
-            <h1 id="home-heading">Электронные микроскопы</h1>
+            <p class="status">Опытно-конструкторские разработки · Зеленоград</p>
+            <h1 id="home-heading">Отечественные электронные микроскопы для науки и промышленности</h1>
           </div>
           <div>
-            <p class="hero-description">Два проекта для лабораторий. SEM-50 предназначен для исследования поверхности, а SEM-200 для изучения внутренней структуры образца.</p>
-            <a class="button button-primary btn" href="#compare">Сравнить модели</a>
+            <p class="hero-description">Проектируем растровые (РЭМ) и просвечивающие (ПЭМ) микроскопы в составе ГК «НТ-МДТ». От анализа морфологии поверхности до исследования атомарной структуры материалов. Приглашаем лаборатории к пилотному тестированию прототипов.</p>
+            <div class="hero-actions">
+              <button class="button button-primary btn" type="button" data-quote>Обсудить задачу лаборатории</button>
+              <a class="button button-outline" href="#compare">Сравнить модели</a>
+            </div>
           </div>
         </div>
         <nav class="hero-stage" data-enter-media aria-label="Модели микроскопов">
@@ -52,8 +61,8 @@
             <div class="hero-model-label"><strong>SEM-50</strong><span>Растровая микроскопия</span><small>Рендер внешнего вида</small></div>
             <div class="hero-model-image"><img src="sem-50.jpg" alt="Рендер растрового микроскопа со столом управления" width="1254" height="1254" fetchpriority="high"></div>
           </a>
-          <a class="hero-model card m-zoom" href="#sem-200">
-            <div class="hero-model-label"><strong>SEM-200</strong><span>Просвечивающая микроскопия</span><small>Фото из материалов проекта</small></div>
+          <a class="hero-model card m-zoom" href="#tem-200">
+            <div class="hero-model-label"><strong>TEM-200</strong><span>Просвечивающая микроскопия</span><small>Фото из материалов проекта</small></div>
             <div class="hero-model-image"><img src="sem-200.jpg?v=19" alt="Электронная колонна просвечивающего микроскопа" width="1311" height="1200"></div>
           </a>
         </nav>
@@ -79,21 +88,20 @@
         </div>
         <div class="instrument-detail">
           <h4>Технические характеристики</h4>
-          <p class="model-note">Предварительные данные</p>
+          <p class="model-note">Предварительные технические характеристики</p>
           <dl class="specifications">
             <div><dt>Метод</dt><dd>Растровая (сканирующая) электронная микроскопия (РЭМ, SEM)</dd></div>
             <div><dt>Источник электронов</dt><dd>Термоэмиссионная пушка с катодом из вольфрама или гексаборида лантана</dd></div>
             <div><dt>Ускоряющее напряжение</dt><dd>0,5–30 кВ</dd></div>
             <div><dt>Увеличение</dt><dd>15×–300 000×</dd></div>
             <div><dt>Зондовый ток</dt><dd>0,5 пА – 5 мкА</dd></div>
-            <div><dt>Разрешение</dt><dd>3 нм при 30 кВ (SE-детектор)</dd></div>
-            <div><dt>Программное обеспечение</dt><dd>SmartSEM v5.04</dd></div>
+            <div><dt>Целевое разрешение</dt><dd>До 3 нм при 30 кВ (SE)</dd></div>
           </dl>
           <div class="config-list">
             <details>
               <summary>Детекторы</summary>
               <ul class="technical-list">
-                <li>Детектор вторичных электронов типа Эверхарта — Торнли (SE).</li>
+                <li>Детектор вторичных электронов (SE).</li>
                 <li>Четырёхсегментный полупроводниковый детектор отражённых электронов (BSE).</li>
                 <li>Детектор вторичных электронов для работы при переменном давлении (VPSE) с регистрацией катодолюминесценции.</li>
               </ul>
@@ -114,42 +122,48 @@
         </div>
       </article>
 
-      <article class="instrument" id="sem-200" aria-labelledby="sem-200-heading">
+      <article class="instrument" id="tem-200" aria-labelledby="tem-200-heading">
         <div class="instrument-summary">
+          <span class="model-anchor" id="sem-200" aria-hidden="true"></span>
           <p class="method">Просвечивающий электронный микроскоп</p>
-          <h3 id="sem-200-heading">SEM-200</h3>
+          <h3 id="tem-200-heading">TEM-200</h3>
           <p class="status">В разработке</p>
-          <p class="instrument-use">Исследование внутренней структуры тонких образцов.</p>
+          <p class="instrument-use">Исследование внутренней ультраструктуры и кристаллографии тонких образцов.</p>
           <p class="visual-note">Изображение установки из материалов проекта</p>
           <figure class="instrument-figure">
-            <a class="image-link m-zoom" href="sem-200.jpg?v=19" data-view aria-label="Увеличить изображение установки SEM-200">
+            <a class="image-link m-zoom" href="sem-200.jpg?v=19" data-view aria-label="Увеличить изображение установки TEM-200">
               <img src="sem-200.jpg?v=19" alt="Электронная колонна, рабочая станция и блок оборудования" width="1311" height="1200" loading="lazy">
             </a>
           </figure>
-          <button class="button button-primary btn" type="button" data-quote="SEM-200">Сделать запрос</button>
+          <button class="button button-primary btn" type="button" data-quote="TEM-200">Сделать запрос</button>
         </div>
         <div class="instrument-detail">
-          <h4 id="specifications">Технические сведения</h4>
-          <p class="model-note">SEM-200 — рабочее обозначение проекта. По типу это просвечивающий электронный микроскоп (ПЭМ, TEM).</p>
+          <h4 id="specifications">Технические характеристики</h4>
+          <p class="model-note">Предварительные технические характеристики. Ранее проект обозначался SEM-200.</p>
           <dl class="specifications">
-            <div><dt>Режимы работы</dt><dd><strong class="metric">5</strong> в предварительном описании</dd></div>
-            <div><dt>Электропитание</dt><dd>380 / 220 В, 50 Гц по предварительным данным</dd></div>
+            <div><dt>Метод</dt><dd>Просвечивающая электронная микроскопия (ПЭМ, TEM)</dd></div>
+            <div><dt>Ускоряющее напряжение</dt><dd>До 200 кВ</dd></div>
+            <div><dt>Позиционирование образца</dt><dd>Прецизионный гониометр</dd></div>
           </dl>
           <div class="config-list" id="modes">
             <details><summary>Режимы работы</summary>
               <ul class="technical-list">
-                <li>Светлое поле на просвет</li><li>Микродифракция</li><li>Малоугловая дифракция</li><li>Работа с гониометром</li><li>Растровый режим</li>
+                <li>Светлопольный и тёмнопольный режимы</li>
+                <li>Микродифракция (SAED)</li>
+                <li>Малоугловая дифракция</li>
+                <li>Растровый просвечивающий режим (STEM)</li>
               </ul>
             </details>
           </div>
           <div class="config-list" id="configuration">
-            <details><summary>Предварительная комплектация</summary>
+            <details><summary>Базовая комплектация</summary>
               <ul class="technical-list">
-                <li>Микроскоп и шкаф управления</li><li>Блок питания и высоковольтный блок питания</li><li>Блок форвакуумных насосов, компрессор и индикатор вакуума</li><li>Ультрамикротом и растровая приставка</li><li>Устройство вывода изображения</li><li>Соединительные кабели</li><li>ПО и эксплуатационная документация</li>
+                <li>Колонна на виброизолированной станине</li>
+                <li>Шкаф управления с промышленным ПК</li>
+                <li>Системы откачки</li>
               </ul>
             </details>
-            <details><summary>Устройство микроскопа</summary><p>Колонна с источником электронов, станина со столешницей и панелью разъёмов, два пульта управления. В шкафу управления предусмотрены промышленный компьютер, кассета управления и регулирующее устройство.</p></details>
-            <details><summary>Требования к установке</summary><p>В предварительном описании указано питание 380 / 220 В, 50 Гц. Габариты, требования к помещению и параметры пробоподготовки уточняются.</p></details>
+            <details><summary>Требования к установке</summary><p>Габариты, электропитание, требования к помещению и параметры пробоподготовки уточняются.</p></details>
           </div>
         </div>
       </article>
@@ -159,15 +173,16 @@
       <div class="shell">
         <h2 id="compare-heading">Сравнение проектов</h2>
         <table class="comparison-table">
-          <thead><tr><th scope="col">Параметр</th><th scope="col">SEM-50</th><th scope="col">SEM-200</th></tr></thead>
+          <thead><tr><th scope="col">Параметр</th><th scope="col">SEM-50</th><th scope="col">TEM-200</th></tr></thead>
           <tbody>
             <tr><th scope="row">Метод</th><td>Растровый (РЭМ)</td><td>Просвечивающий (ПЭМ)</td></tr>
-            <tr><th scope="row">Что исследуется</th><td>Поверхность и морфология</td><td>Внутренняя структура</td></tr>
-            <tr><th scope="row">Образец</th><td>Для анализа поверхности. Требования уточняются.</td><td>Тонкий образец. Параметры подготовки уточняются.</td></tr>
-            <tr><th scope="row">Режимы</th><td>Состав уточняется</td><td><a href="#modes" data-open-details>5 в предварительном описании</a></td></tr>
+            <tr><th scope="row">Что исследуется</th><td>Топография и морфология поверхности</td><td>Внутренняя ультраструктура и кристаллография</td></tr>
+            <tr><th scope="row">Образцы</th><td>Массивные образцы, шлифы и порошки. Масса до 0,5 кг.</td><td>Ультратонкие срезы, ламели и наночастицы. Толщина до 100 нм.</td></tr>
+            <tr><th scope="row">Ускоряющее напряжение</th><td>0,5–30 кВ</td><td>До 200 кВ</td></tr>
+            <tr><th scope="row">Режимы</th><td>SE, BSE и переменный вакуум (VP)</td><td><a href="#modes" data-open-details>Светлое и тёмное поле, микродифракция (SAED) и STEM</a></td></tr>
           </tbody>
         </table>
-        <a class="text-link" href="specification.pdf">Краткая спецификация проектов (PDF)</a>
+        <a class="text-link" href="specification.pdf?v=21">Краткая спецификация проектов (PDF)</a>
       </div>
     </section>
 
@@ -176,13 +191,13 @@
       <div class="shell">
         <div class="section-intro">
           <h2 id="process-heading">Как работаем над проектом</h2>
-          <p>План разработки обсуждаем с лабораторией. Начинаем с образца и результата, который нужно получить.</p>
+          <p>Оба прибора находятся на этапе разработки. Мы открыты к совместным НИОКР и апробации прототипов на образцах вашей лаборатории.</p>
         </div>
         <ol class="process-grid">
-          <li><span aria-hidden="true">01</span><h3>Описываем задачу</h3><p>Уточняем материал, размеры образца и условия исследования.</p></li>
-          <li><span aria-hidden="true">02</span><h3>Подбираем метод</h3><p>Определяем, нужна ли съёмка поверхности или анализ внутренней структуры.</p></li>
-          <li><span aria-hidden="true">03</span><h3>Планируем испытания</h3><p>Выбираем образцы и критерии для проверки прототипа.</p></li>
-          <li><span aria-hidden="true">04</span><h3>Уточняем конфигурацию</h3><p>По результатам испытаний определяем режимы и требования к установке.</p></li>
+          <li><span aria-hidden="true">01</span><h3>Фиксируем задачу</h3><p>Изучаем ваши типичные образцы, требования к разрешению, вакууму и условиям установки.</p></li>
+          <li><span aria-hidden="true">02</span><h3>Подбираем конфигурацию</h3><p>Определяем оптимальный метод (РЭМ или ПЭМ), состав детекторов и режимы работы колонны.</p></li>
+          <li><span aria-hidden="true">03</span><h3>Проводим тестовую съёмку</h3><p>Согласовываем программу испытаний на стендовом прототипе и оцениваем качество изображений.</p></li>
+          <li><span aria-hidden="true">04</span><h3>Адаптируем под серию</h3><p>Учитываем замечания ваших операторов при финализации конструкции и программного обеспечения.</p></li>
         </ol>
       </div>
     </section>
@@ -190,8 +205,8 @@
     <section class="shell faq" id="faq" aria-labelledby="faq-heading">
       <div class="section-intro"><h2 id="faq-heading">Частые вопросы</h2></div>
       <div class="config-list">
-        <details><summary>На каком этапе находятся микроскопы?</summary><p>SEM-50 и SEM-200 в разработке. Сайт показывает их назначение и предварительные сведения.</p></details>
-        <details><summary>Как выбрать модель для своего образца?</summary><p>Для исследования поверхности рассмотрите SEM-50, для внутренней структуры тонкого образца — SEM-200. Окончательные требования к пробоподготовке уточняются.</p></details>
+        <details><summary>На каком этапе находятся микроскопы?</summary><p>SEM-50 и TEM-200 в разработке. Сайт показывает их назначение и предварительные сведения.</p></details>
+        <details><summary>Как выбрать модель для своего образца?</summary><p>Для исследования поверхности рассмотрите SEM-50, для внутренней структуры тонкого образца — TEM-200. Окончательные требования к пробоподготовке уточняются.</p></details>
         <details><summary>Что указать в первом письме?</summary><p>Расскажите о материале и размере образца, желаемом результате и доступных условиях в лаборатории.</p></details>
       </div>
     </section>
@@ -205,14 +220,15 @@
 
     <div class="company-section">
       <div class="shell company-layout">
-        <section id="about" aria-labelledby="about-heading" data-moment="word-highlight">
-          <h2 id="about-heading">О компании</h2>
-          <p class="company-name mo-wh__text">Мы — молодая команда из <strong>Зеленограда</strong>. Разрабатываем микроскопы, отталкиваясь от того, какие образцы и режимы нужны лабораториям.</p>
-          <div class="config-list">
-            <details><summary>Идея разработки</summary><p>Два проекта для разных задач: исследование поверхности и анализ внутренней структуры тонких образцов.</p></details>
-            <details><summary>Ход разработки</summary><p>Оба проекта находятся в разработке. На сайте собраны текущие сведения о назначении приборов и предварительной конфигурации.</p></details>
-            <details><summary>Команда</summary><p>С командой из Зеленограда можно связаться и обсудить задачи вашей лаборатории.</p></details>
-          </div>
+        <section id="about" aria-labelledby="about-heading">
+          <h2 id="about-heading">Инженерная школа Зеленограда и опыт ГК «НТ-МДТ»</h2>
+          <p class="company-intro">ООО «Активная микроскопия» — специализированное конструкторское подразделение в составе Группы компаний «НТ-МДТ» (Зеленоград), одного из ведущих российских разработчиков приборов для нанотехнологий.</p>
+          <a class="text-link" href="https://ntmdt-russia.com/developments/">Разработки и производство ГК «НТ-МДТ»</a>
+          <ul class="company-benefits">
+            <li><h3>Преемственность технологий</h3><p>Опираемся на многолетнюю экспертизу холдинга в области высокоточного приборостроения, вакуумной техники, прецизионной механики и управляющего ПО.</p></li>
+            <li><h3>Разработка под реальные методики</h3><p>Проектируем линейку приборов в прямом диалоге с российскими НИИ, вузами и заводскими ЦЗЛ, закладывая нужные режимы на этапе ОКР.</p></li>
+            <li><h3>Локализация и сервис</h3><p>Собственная производственная база в Зеленограде гарантирует прозрачную сервисную поддержку, обучение персонала и доступность комплектующих.</p></li>
+          </ul>
         </section>
         <section id="contact" aria-labelledby="contact-heading">
           <h2 id="contact-heading">Контакты</h2>
@@ -245,7 +261,7 @@
     <p class="dialog-intro">Кнопка «Отправить по почте» откроет заполненный черновик в вашем почтовом приложении.</p>
     <form id="quote-form">
       <label class="form-field"><span>Модель</span>
-        <select name="model" required><option value="">Выберите модель</option><option value="SEM-50">SEM-50 — растровый</option><option value="SEM-200">SEM-200 — просвечивающий</option><option value="Обе модели">Обе модели</option></select>
+        <select name="model" required><option value="">Выберите модель</option><option value="SEM-50">SEM-50 — растровый</option><option value="TEM-200">TEM-200 — просвечивающий</option><option value="Обе модели">Обе модели</option></select>
       </label>
       <div class="form-row">
         <label class="form-field"><span>Имя</span><input name="name" autocomplete="name" required maxlength="100"></label>
