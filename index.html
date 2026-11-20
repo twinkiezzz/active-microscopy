@@ -1,14 +1,24 @@
 <!doctype html>
-<html lang="ru">
+<html lang="ru" data-type="product" data-radius="soft" data-buttons="solid" data-motion>
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Активная микроскопия. Разработка растрового SEM-50 и просвечивающего SEM-200. Сравнение проектов, предварительные сведения и контакты.">
-  <meta name="theme-color" content="#f8f9fa">
+  <meta name="theme-color" content="#f6f7f9">
+  <meta name="page-type" content="product">
+  <meta name="site-kind" content="tech">
+  <meta property="og:title" content="Активная микроскопия — электронные микроскопы">
+  <meta property="og:description" content="Растровый SEM-50 и просвечивающий SEM-200 в разработке.">
+  <meta property="og:image" content="https://twinkiezzz.github.io/active-microscopy/sem-200.jpg">
   <title>Активная микроскопия — разработка электронных микроскопов</title>
-  <link rel="preload" href="fonts/golos-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="style.css?v=7">
+  <link rel="preload" href="fonts/manrope-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="style.css?v=8">
+  <link rel="stylesheet" href="assets/motion/motion.css">
+  <link rel="stylesheet" href="assets/moments/word-highlight/moment.css">
+  <script>document.documentElement.classList.add('m-enter');setTimeout(()=>document.documentElement.classList.add('m-enter-done'),700)</script>
   <script src="site.js?v=7" defer></script>
+  <script type="module" src="assets/motion/motion.js"></script>
+  <script type="module" src="assets/moments/moments.js"></script>
 </head>
 <body id="top">
   <a class="skip-link" href="#main">К содержанию</a>
@@ -18,27 +28,31 @@
       <nav class="primary-nav" aria-label="Основная навигация">
         <a href="#catalog">Модели</a><a href="#compare">Сравнение</a><a href="#about">О компании</a><a href="#contact">Контакты</a>
       </nav>
-      <button class="button button-primary" type="button" data-quote>Обсудить проект</button>
+      <button class="button button-primary btn" type="button" data-quote>Обсудить проект</button>
     </div>
   </header>
 
   <main id="main" tabindex="-1">
-    <section class="hero" aria-labelledby="home-heading">
-      <div class="shell hero-layout">
-        <div class="hero-copy">
-          <p class="status">В разработке</p>
-          <h1 id="home-heading">Электронные<br>микроскопы</h1>
-          <p class="hero-description">Разрабатываем два электронных микроскопа для лабораторий. Один изучает поверхность образца, второй — его внутреннюю структуру.</p>
-          <a class="button button-primary" href="#compare">Сравнить модели</a>
+    <section class="hero hero--product" data-enter aria-labelledby="home-heading">
+      <div class="shell">
+        <div class="hero-head">
+          <div>
+            <p class="status">Обе модели в разработке</p>
+            <h1 id="home-heading">Электронные микроскопы</h1>
+          </div>
+          <div>
+            <p class="hero-description">Два проекта для лабораторий. SEM-50 предназначен для исследования поверхности, а SEM-200 для изучения внутренней структуры образца.</p>
+            <a class="button button-primary btn" href="#compare">Сравнить модели</a>
+          </div>
         </div>
-        <nav class="hero-models" aria-label="Модели микроскопов">
-          <a class="hero-model" href="#sem-50">
-            <div class="hero-model-image hero-model-image-render"><img src="sem-50.jpg" alt="" width="1254" height="1254" fetchpriority="high"></div>
-            <div class="hero-model-label"><strong>SEM-50</strong><span>Исследование поверхности</span><small>Рендер внешнего вида</small></div>
+        <nav class="hero-stage" data-enter-media aria-label="Модели микроскопов">
+          <a class="hero-model card m-zoom" href="#sem-50">
+            <div class="hero-model-label"><strong>SEM-50</strong><span>Растровая микроскопия</span><small>Рендер внешнего вида</small></div>
+            <div class="hero-model-image hero-model-image-render"><img src="sem-50.jpg" alt="Рендер растрового микроскопа со столом управления" width="1254" height="1254" fetchpriority="high"></div>
           </a>
-          <a class="hero-model" href="#sem-200">
-            <div class="hero-model-image"><img src="sem-200.jpg" alt="" width="495" height="453"></div>
-            <div class="hero-model-label"><strong>SEM-200</strong><span>Анализ внутренней структуры</span><small>Фото из материалов проекта</small></div>
+          <a class="hero-model card m-zoom" href="#sem-200">
+            <div class="hero-model-label"><strong>SEM-200</strong><span>Просвечивающая микроскопия</span><small>Фото из материалов проекта</small></div>
+            <div class="hero-model-image"><img src="sem-200.jpg" alt="Электронная колонна просвечивающего микроскопа" width="495" height="453"></div>
           </a>
         </nav>
       </div>
@@ -53,13 +67,13 @@
           <h3 id="sem-50-heading">SEM-50</h3>
           <p class="status">В разработке</p>
           <p class="instrument-use">Исследование поверхности и морфологии образцов.</p>
+          <p class="visual-note">Рендер внешнего вида</p>
           <figure class="instrument-figure instrument-figure-sem50">
-            <a class="image-link" href="sem-50.jpg" data-view aria-label="Увеличить рендер SEM-50">
+            <a class="image-link m-zoom" href="sem-50.jpg" data-view aria-label="Увеличить рендер SEM-50">
               <img src="sem-50.jpg" alt="Рендер внешнего вида SEM-50" width="1254" height="1254" loading="lazy">
             </a>
-            <figcaption>Рендер внешнего вида</figcaption>
           </figure>
-          <button class="button button-primary" type="button" data-quote="SEM-50">Обсудить SEM-50</button>
+          <button class="button button-primary btn" type="button" data-quote="SEM-50">Обсудить SEM-50</button>
         </div>
         <div class="instrument-detail">
           <h4>Технические сведения</h4>
@@ -80,13 +94,13 @@
           <h3 id="sem-200-heading">SEM-200</h3>
           <p class="status">В разработке</p>
           <p class="instrument-use">Исследование внутренней структуры тонких образцов.</p>
+          <p class="visual-note">Изображение установки из материалов проекта</p>
           <figure class="instrument-figure">
-            <a class="image-link" href="sem-200.jpg" data-view aria-label="Увеличить изображение установки SEM-200">
+            <a class="image-link m-zoom" href="sem-200.jpg" data-view aria-label="Увеличить изображение установки SEM-200">
               <img src="sem-200.jpg" alt="Электронная колонна, рабочая станция и блок оборудования" width="495" height="453" loading="lazy">
             </a>
-            <figcaption>Изображение установки из материалов проекта</figcaption>
           </figure>
-          <button class="button button-primary" type="button" data-quote="SEM-200">Обсудить SEM-200</button>
+          <button class="button button-primary btn" type="button" data-quote="SEM-200">Обсудить SEM-200</button>
         </div>
         <div class="instrument-detail">
           <h4 id="specifications">Технические сведения</h4>
@@ -139,15 +153,15 @@
     <section class="request-section" id="quote-request" aria-labelledby="request-heading">
       <div class="shell request-layout">
         <div><h2 id="request-heading">Обсудить задачу лаборатории</h2><p>Расскажите, какой образец вы хотите исследовать и какой результат нужен.</p></div>
-        <button class="button button-inverse" type="button" data-quote>Написать команде</button>
+        <button class="button button-primary btn" type="button" data-quote>Написать команде</button>
       </div>
     </section>
 
     <div class="company-section">
       <div class="shell company-layout">
-        <section id="about" aria-labelledby="about-heading">
+        <section id="about" aria-labelledby="about-heading" data-moment="word-highlight">
           <h2 id="about-heading">О компании</h2>
-          <p class="company-name">Мы — молодая команда из Зеленограда, которая разрабатывает электронные микроскопы. Начинаем с задач лабораторий: какие образцы они изучают, какие режимы им нужны и как они будут работать с прибором. Параметры публикуем после подтверждения.</p>
+          <p class="company-name mo-wh__text">Мы — команда из <strong>Зеленограда</strong>. Разрабатываем микроскопы, отталкиваясь от того, какие образцы и режимы нужны лабораториям.</p>
           <div class="config-list">
             <details><summary>Идея разработки</summary><p>Два проекта для разных задач: исследование поверхности и анализ внутренней структуры тонких образцов.</p></details>
             <details><summary>Ход разработки</summary><p>Оба проекта находятся в разработке. На сайте собраны текущие сведения о назначении приборов и предварительной конфигурации.</p></details>
@@ -187,7 +201,7 @@
         <label class="form-field"><span>Организация</span><input name="company" autocomplete="organization" maxlength="120"></label>
       </div>
       <label class="form-field"><span>Задача исследования</span><textarea name="message" rows="3" maxlength="500" required></textarea></label>
-      <div class="dialog-actions"><button class="button button-primary" type="submit">Отправить по почте</button><button class="button button-outline" type="button" data-copy>Скопировать</button></div>
+      <div class="dialog-actions"><button class="button button-primary btn" type="submit">Отправить по почте</button><button class="button button-outline btn" type="button" data-copy>Скопировать</button></div>
       <p class="form-status" role="status"></p>
       <label class="form-field copy-fallback" hidden><span>Текст обращения</span><textarea readonly rows="5"></textarea></label>
     </form>
@@ -195,7 +209,7 @@
   <dialog class="image-dialog" id="viewer" aria-labelledby="viewer-title">
     <div class="dialog-heading"><h2 id="viewer-title">Изображение</h2><button class="dialog-close" type="button" aria-label="Закрыть">×</button></div>
     <div class="image-viewport"><img alt=""></div>
-    <div class="dialog-actions"><button class="button button-outline" type="button" data-zoom aria-pressed="false">Увеличить</button></div>
+    <div class="dialog-actions"><button class="button button-outline btn" type="button" data-zoom aria-pressed="false">Увеличить</button></div>
   </dialog>
 </body>
 </html>
