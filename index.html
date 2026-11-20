@@ -7,7 +7,7 @@
   <meta name="theme-color" content="#f8f9fa">
   <title>Активная микроскопия — разработка электронных микроскопов</title>
   <link rel="preload" href="fonts/golos-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="style.css?v=5">
+  <link rel="stylesheet" href="style.css?v=6">
   <script src="site.js?v=5" defer></script>
 </head>
 <body id="top">
@@ -28,22 +28,24 @@
         <div class="hero-copy">
           <p class="status">В разработке</p>
           <h1 id="home-heading">Электронные<br>микроскопы</h1>
-          <p class="hero-description">Два проекта для лабораторий. SEM-50 — для исследования поверхности, SEM-200 — для изучения внутренней структуры тонких образцов.</p>
+          <p class="hero-description">Разрабатываем растровый и просвечивающий микроскопы для исследовательских лабораторий.</p>
           <a class="button button-primary" href="#compare">Сравнить модели</a>
         </div>
-        <figure class="hero-figure" data-reveal>
-          <img src="sem-50.jpg" alt="Рендер внешнего вида установки со столом управления и двумя мониторами" width="1254" height="1254" fetchpriority="high">
-          <figcaption>SEM-50 · Рендер внешнего вида</figcaption>
-        </figure>
+        <nav class="hero-models" aria-label="Модели микроскопов">
+          <a class="hero-model" href="#sem-50">
+            <div class="hero-model-image hero-model-image-render"><img src="sem-50.jpg" alt="" width="1254" height="1254" fetchpriority="high"></div>
+            <div class="hero-model-label"><strong>SEM-50</strong><span>Исследование поверхности</span><small>Рендер внешнего вида</small></div>
+          </a>
+          <a class="hero-model" href="#sem-200">
+            <div class="hero-model-image"><img src="sem-200.jpg" alt="" width="495" height="453"></div>
+            <div class="hero-model-label"><strong>SEM-200</strong><span>Внутренняя структура образца</span><small>Из материалов проекта</small></div>
+          </a>
+        </nav>
       </div>
     </section>
 
     <section class="catalog shell" id="catalog" aria-labelledby="catalog-heading">
       <div class="catalog-header"><h2 id="catalog-heading">Два метода микроскопии</h2></div>
-      <nav class="model-index" aria-label="Модели микроскопов">
-        <a class="model-link" href="#sem-50"><strong>SEM-50</strong><span>Растровая микроскопия</span><span>Исследование поверхности</span></a>
-        <a class="model-link" href="#sem-200"><strong>SEM-200</strong><span>Просвечивающая микроскопия</span><span>5 режимов в предварительном описании</span></a>
-      </nav>
 
       <article class="instrument" id="sem-50" aria-labelledby="sem-50-heading">
         <div class="instrument-summary">
