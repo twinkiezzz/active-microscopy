@@ -1,3 +1,27 @@
+function mountConceptPreview() {
+  const concept = new URLSearchParams(window.location.search).get("concept");
+  const template = document.getElementById("concept-hero-" + concept);
+  if (!(template instanceof HTMLTemplateElement)) return;
+
+  document.documentElement.dataset.concept = concept;
+  document.querySelector(".hero").replaceWith(template.content.cloneNode(true));
+  const navigation = document.getElementById("concept-preview-navigation").content.cloneNode(true);
+  const currentLink = [...navigation.querySelectorAll("a")].find(link => link.getAttribute("href") === "?concept=" + concept);
+  currentLink.setAttribute("aria-current", "page");
+  document.querySelector(".site-header").before(navigation);
+
+  if (concept === "pilot") {
+    const process = document.querySelector("#process");
+    const steps = process.querySelector(".process-grid");
+    const flow = document.getElementById("concept-story-flow").content.firstElementChild.cloneNode(true);
+    steps.before(flow);
+    flow.append(steps);
+    document.querySelector("#catalog").before(process);
+  }
+}
+
+mountConceptPreview();
+
 const dialog = document.querySelector("#quote");
 const form = document.querySelector("#quote-form");
 const modelField = form.elements.namedItem("model");
@@ -146,7 +170,37 @@ zoom.addEventListener("click", () => {
   if (!enlarged) viewport.scrollTo(0, 0);
 });
 
+function createStoryProgress() {
+  const flow = document.querySelector(".story-flow");
+  if (!flow) return null;
+
+  const steps = [...flow.querySelectorAll(".process-grid li")];
+  const stepName = flow.querySelector("[data-story-step-name]");
+  const stepCounter = flow.querySelector("[data-story-step-counter]");
+  const meter = flow.querySelector(".story-meter > span");
+  let current = -1;
+
+  return () => {
+    const activationLine = window.innerHeight * .48;
+    let step = 0;
+    for (let index = 1; index < steps.length; index++) {
+      if (steps[index].getBoundingClientRect().top > activationLine) break;
+      step = index;
+    }
+    if (step === current) return;
+
+    if (current >= 0) steps[current].removeAttribute("aria-current");
+    steps[step].setAttribute("aria-current", "step");
+    stepName.textContent = steps[step].querySelector("h3").textContent;
+    stepCounter.textContent = "Этап " + (step + 1) + " из " + steps.length;
+    const progress = (step + 1) / steps.length;
+    meter.style.transform = "scaleX(" + progress + ")";
+    current = step;
+  };
+}
+
 const scrollProgress = document.querySelector(".scroll-progress");
+const updateStoryProgress = createStoryProgress();
 let scrollFrame = 0;
 
 function renderScrollProgress() {
@@ -154,6 +208,7 @@ function renderScrollProgress() {
   const root = document.documentElement;
   const distance = root.scrollHeight - root.clientHeight;
   const fraction = distance > 0 ? Math.max(0, Math.min(1, window.scrollY / distance)) : 0;
+  updateStoryProgress?.();
   scrollProgress.style.transform = "scaleX(" + fraction + ")";
 }
 
@@ -165,6 +220,46 @@ window.addEventListener("scroll", updateScrollProgress, { passive: true });
 window.addEventListener("resize", updateScrollProgress, { passive: true });
 if ("ResizeObserver" in window) new ResizeObserver(updateScrollProgress).observe(document.body);
 renderScrollProgress();
+
+function bindScrollReveals() {
+  const preference = matchMedia("(prefers-reduced-motion: no-preference)");
+  if (!preference.matches || !("IntersectionObserver" in window)) return;
+
+  const pending = new Set();
+  const observer = new IntersectionObserver(entries => {
+    for (const entry of entries) {
+      if (entry.isIntersecting || entry.boundingClientRect.bottom <= 0) reveal(entry.target);
+    }
+  });
+
+  function reveal(target) {
+    if (!pending.delete(target)) return;
+    observer.unobserve(target);
+    target.classList.add("has-revealed");
+    target.classList.remove("is-reveal-pending");
+  }
+
+  requestAnimationFrame(() => {
+    if (!preference.matches) return;
+    const belowViewport = [...document.querySelectorAll("[data-scroll-reveal]")]
+      .filter(target => target.getBoundingClientRect().top > window.innerHeight);
+    for (const target of belowViewport) {
+      target.classList.add("is-reveal-pending");
+      pending.add(target);
+      observer.observe(target);
+    }
+  });
+
+  document.addEventListener("focusin", event => {
+    const target = event.target.closest?.(".is-reveal-pending");
+    if (target) reveal(target);
+  });
+  preference.addEventListener("change", () => {
+    if (!preference.matches) pending.forEach(reveal);
+  });
+}
+
+bindScrollReveals();
 
 const spotlightMedia = matchMedia("(hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference)");
 const spotlightSelector = ".image-link, .button-primary";

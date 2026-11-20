@@ -14,11 +14,12 @@
   <link rel="preload" href="fonts/ibm-plex-sans-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="fonts/inter-700-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="icon" type="image/png" sizes="48x48" href="favicon-amicro.png">
-  <link rel="stylesheet" href="style.css?v=25">
+  <link rel="stylesheet" href="style.css?v=26">
+  <link rel="stylesheet" href="assets/concepts.css?v=26">
   <link rel="stylesheet" href="assets/motion/motion.css">
   <link rel="stylesheet" href="assets/moments/word-highlight/moment.css">
   <script>document.documentElement.classList.add('m-enter');setTimeout(()=>document.documentElement.classList.add('m-enter-done'),700)</script>
-  <script src="site.js?v=25" defer></script>
+  <script src="site.js?v=26" defer></script>
   <script type="module" src="assets/motion/motion.js"></script>
   <script type="module" src="assets/moments/moments.js"></script>
 </head>
@@ -76,10 +77,10 @@
     </section>
 
     <section class="catalog shell" id="catalog" aria-labelledby="catalog-heading">
-      <div class="catalog-header"><h2 id="catalog-heading">Наши проекты</h2></div>
+      <div class="catalog-header" data-scroll-reveal><h2 id="catalog-heading">Наши проекты</h2></div>
 
       <article class="instrument" id="sem-50" aria-labelledby="sem-50-heading">
-        <div class="instrument-summary">
+        <div class="instrument-summary" data-scroll-reveal>
           <p class="method">Растровый (сканирующий) электронный микроскоп</p>
           <h3 id="sem-50-heading">SEM-50</h3>
           <p class="status">В разработке</p>
@@ -92,7 +93,7 @@
           </figure>
           <button class="button button-primary btn" type="button" data-quote="SEM-50">Сделать запрос</button>
         </div>
-        <div class="instrument-detail">
+        <div class="instrument-detail" data-scroll-reveal>
           <h4>Технические характеристики</h4>
           <p class="model-note">Предварительные данные</p>
           <dl class="specifications">
@@ -159,7 +160,7 @@
       </article>
 
       <article class="instrument" id="tem-200" aria-labelledby="tem-200-heading">
-        <div class="instrument-summary">
+        <div class="instrument-summary" data-scroll-reveal>
           <span class="model-anchor" id="sem-200" aria-hidden="true"></span>
           <p class="method">Просвечивающий электронный микроскоп</p>
           <h3 id="tem-200-heading">TEM-200</h3>
@@ -173,7 +174,7 @@
           </figure>
           <button class="button button-primary btn" type="button" data-quote="TEM-200">Сделать запрос</button>
         </div>
-        <div class="instrument-detail">
+        <div class="instrument-detail" data-scroll-reveal>
           <h4 id="specifications">Технические характеристики</h4>
           <p class="model-note">Предварительные данные</p>
           <dl class="specifications">
@@ -210,8 +211,8 @@
 
     <section class="comparison" id="compare" aria-labelledby="compare-heading">
       <div class="shell">
-        <h2 id="compare-heading">Сравнение проектов</h2>
-        <table class="comparison-table" role="table" aria-labelledby="compare-heading">
+        <h2 id="compare-heading" data-scroll-reveal>Сравнение проектов</h2>
+        <table class="comparison-table" role="table" aria-labelledby="compare-heading" data-scroll-reveal>
           <thead role="rowgroup">
             <tr role="row"><th scope="col" role="columnheader">Параметр</th><th class="spec-value" scope="col" role="columnheader">SEM-50</th><th class="spec-value" scope="col" role="columnheader">TEM-200</th></tr>
           </thead>
@@ -230,23 +231,23 @@
 
     <section class="process" id="process" aria-labelledby="process-heading">
       <div class="shell">
-        <div class="section-intro">
+        <div class="section-intro" data-scroll-reveal>
           <h2 id="process-heading">Как работаем над проектом</h2>
           <p>В пилоте вы сможете проверить, подходит ли прототип для вашей методики. Вместе согласуем образцы, режимы съёмки и критерии оценки.</p>
         </div>
         <ol class="process-grid">
-          <li><span aria-hidden="true">01</span><h3>Фиксируем задачу</h3><p>Изучаем ваши типичные образцы, требования к разрешению, вакууму и условиям установки.</p></li>
-          <li><span aria-hidden="true">02</span><h3>Подбираем конфигурацию</h3><p>Определяем оптимальный метод (РЭМ или ПЭМ), состав детекторов и режимы работы колонны.</p></li>
-          <li><span aria-hidden="true">03</span><h3>Проводим тестовую съёмку</h3><p>Согласовываем программу испытаний на стендовом прототипе и оцениваем качество изображений.</p></li>
-          <li><span aria-hidden="true">04</span><h3>Адаптируем под серию</h3><p>Учитываем замечания ваших операторов при финализации конструкции и программного обеспечения.</p></li>
+          <li data-scroll-reveal><span aria-hidden="true">01</span><h3>Фиксируем задачу</h3><p>Изучаем ваши типичные образцы, требования к разрешению, вакууму и условиям установки.</p></li>
+          <li data-scroll-reveal><span aria-hidden="true">02</span><h3>Подбираем конфигурацию</h3><p>Определяем оптимальный метод (РЭМ или ПЭМ), состав детекторов и режимы работы колонны.</p></li>
+          <li data-scroll-reveal><span aria-hidden="true">03</span><h3>Проводим тестовую съёмку</h3><p>Согласовываем программу испытаний на стендовом прототипе и оцениваем качество изображений.</p></li>
+          <li data-scroll-reveal><span aria-hidden="true">04</span><h3>Адаптируем под серию</h3><p>Учитываем замечания ваших операторов при финализации конструкции и программного обеспечения.</p></li>
         </ol>
         <a class="text-link process-pilot-link" href="#quote-request">Обсудить пилотное партнёрство</a>
       </div>
     </section>
 
     <section class="shell faq" id="faq" aria-labelledby="faq-heading">
-      <div class="section-intro"><h2 id="faq-heading">Частые вопросы</h2></div>
-      <div class="config-list">
+      <div class="section-intro" data-scroll-reveal><h2 id="faq-heading">Частые вопросы</h2></div>
+      <div class="config-list" data-scroll-reveal>
         <details><summary>На каком этапе находятся микроскопы?</summary><p>SEM-50 и TEM-200 в разработке. В пилоте можно заранее проверить нужные режимы на образцах вашей лаборатории.</p></details>
         <details><summary>Как выбрать модель для своего образца?</summary><p>Для исследования поверхности рассмотрите SEM-50, для внутренней структуры тонкого образца — TEM-200. Окончательные требования к пробоподготовке уточняются.</p></details>
         <details><summary>Что указать в заявке?</summary><p>Расскажите о материале и размере образца, желаемом результате и доступных условиях в лаборатории.</p></details>
@@ -254,7 +255,7 @@
     </section>
 
     <section class="request-section" id="quote-request" aria-labelledby="request-heading">
-      <div class="shell request-layout">
+      <div class="shell request-layout" data-scroll-reveal>
         <div>
           <h2 id="request-heading">Пилотное партнёрство</h2>
           <p>Расскажите, какой образец хотите исследовать и какой результат нужен. Вместе согласуем программу, сроки и стоимость тестовой съёмки. Для совместных НИОКР можем обсудить грантовую заявку на апробацию прибора.</p>
@@ -265,13 +266,13 @@
 
     <section class="company-section" id="about" aria-labelledby="about-heading">
       <div class="shell company-layout">
-        <h2 id="about-heading">Инженерная школа Зеленограда
+        <h2 id="about-heading" data-scroll-reveal>Инженерная школа Зеленограда
           <span class="company-heading-line">и опыт ГК&nbsp;«НТ‑МДТ»</span>
         </h2>
         <p class="company-intro">ООО «Активная микроскопия» — специализированное конструкторское подразделение в составе Группы компаний «НТ-МДТ» (Зеленоград), одного из ведущих российских разработчиков приборов для нанотехнологий.</p>
         <p class="company-intro">Над микроскопами работают высококвалифицированные инженеры, разработчики и научные специалисты. Команда объединяет компетенции в вакуумной технике, прецизионной механике, электронике управления и методиках электронной микроскопии.</p>
         <a class="text-link" href="https://ntmdt-russia.com/developments/">Разработки и производство ГК «НТ-МДТ»</a>
-        <ul class="company-benefits">
+        <ul class="company-benefits" data-scroll-reveal>
           <li><h3>Инженерные компетенции</h3><p>В проектировании колонны, вакуумной системы и позиционирования образца опираемся на опыт ГК «НТ-МДТ» в высокоточном приборостроении, прецизионной механике и управляющем ПО.</p></li>
           <li><h3>Разработка под реальные методики</h3><p>Проектируем линейку приборов в прямом диалоге с российскими НИИ, вузами и заводскими ЦЗЛ, закладывая нужные режимы на этапе ОКР.</p></li>
           <li><h3>Локализация и сервис</h3><p>Собственная производственная база в Зеленограде гарантирует прозрачную сервисную поддержку, обучение персонала и доступность комплектующих.</p></li>
@@ -281,7 +282,7 @@
 
     <section class="contact-section" id="contact" aria-labelledby="contact-heading">
       <div class="shell contact-layout">
-        <div>
+        <div data-scroll-reveal>
           <h2 id="contact-heading">Контакты</h2>
           <dl class="contact-list">
             <div><dt>Почта</dt><dd><a href="mailto:info@amicro.ru">info@amicro.ru</a></dd></div>
@@ -289,7 +290,7 @@
             <div><dt>Адрес</dt><dd class="contact-address">124460, г. Москва, вн. тер. г. муниципальный округ Матушкино, г. Зеленоград, пр-кт Панфиловский, д. 10, помещ. 66Н/3</dd></div>
           </dl>
         </div>
-        <div>
+        <div data-scroll-reveal>
           <div class="contact-map">
             <iframe title="Яндекс Карты — Панфиловский проспект, 10, Зеленоград" src="https://yandex.ru/map-widget/v1/?ll=37.201760,56.011676&amp;z=16&amp;pt=37.201760,56.011676,pm2rdm" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
           </div>
@@ -335,5 +336,123 @@
     <div class="image-viewport"><img alt=""></div>
     <div class="dialog-actions"><button class="button button-outline btn" type="button" data-zoom aria-pressed="false">Увеличить</button></div>
   </dialog>
+
+  <template id="concept-preview-navigation">
+    <nav class="concept-picker" aria-label="Концепты дизайна">
+      <div class="shell concept-picker-layout">
+        <div class="concept-picker-options">
+          <span>Концепты</span>
+          <a href="?concept=column">Колонна</a>
+          <a href="?concept=catalog">Паспорт приборов</a>
+          <a href="?concept=pilot">Путь прототипа</a>
+        </div>
+        <a class="concept-picker-return" href="./"><span aria-hidden="true">←</span> К основной версии</a>
+      </div>
+    </nav>
+  </template>
+
+  <template id="concept-hero-column">
+    <section class="hero concept-hero concept-column" data-enter aria-labelledby="home-heading">
+      <div class="shell concept-column-layout">
+        <div class="concept-column-copy">
+          <p class="concept-kicker">НИОКР · Зеленоград</p>
+          <h1 id="home-heading">Электронная оптика <span class="concept-title-accent">от колонны до прибора</span></h1>
+          <p class="concept-lead">Разрабатываем РЭМ и ПЭМ в составе ГК&nbsp;«НТ‑МДТ». Проектируем электронно-оптические колонны, вакуумные системы и управляющее ПО.</p>
+          <p class="concept-stage">SEM-50 и TEM-200 в разработке.</p>
+          <div class="hero-actions">
+            <button class="button button-primary btn" type="button" data-quote data-pilot>Обсудить задачу <span aria-hidden="true">→</span></button>
+            <a class="button button-outline" href="#catalog">Смотреть проекты</a>
+          </div>
+        </div>
+        <figure class="concept-column-image" data-enter-media>
+          <img src="assets/electron-column.webp" alt="Концепт-рендер внешнего вида электронно-оптической колонны" width="1280" height="960" fetchpriority="high">
+          <figcaption>Концепт-рендер электронной колонны</figcaption>
+        </figure>
+      </div>
+    </section>
+  </template>
+
+  <template id="concept-hero-catalog">
+    <section class="hero concept-hero concept-catalog" data-enter aria-labelledby="home-heading">
+      <div class="shell">
+        <div class="concept-catalog-intro">
+          <div>
+            <p class="concept-kicker">Электронная микроскопия · ГК «НТ-МДТ»</p>
+            <h1 id="home-heading">Два метода <span class="concept-title-accent">для разных задач</span></h1>
+          </div>
+          <div>
+            <p class="concept-lead"><span class="concept-model-name">SEM-50</span> изучает поверхность образца, <span class="concept-model-name">TEM-200</span> — его внутреннюю структуру. Сравните назначение и предварительные параметры проектов.</p>
+            <div class="hero-actions">
+              <a class="button button-primary btn" href="#compare">Сравнить модели</a>
+              <button class="button button-outline btn" type="button" data-quote data-pilot>Обсудить задачу</button>
+            </div>
+          </div>
+        </div>
+        <div class="concept-instruments" data-enter-media>
+          <a class="concept-instrument m-zoom" href="#sem-50">
+            <div class="concept-instrument-copy">
+              <span class="concept-kicker">РЭМ · Поверхность</span>
+              <strong>SEM-50</strong>
+              <span class="concept-metric">0,5–30 кВ</span>
+              <span class="status">В разработке</span>
+              <span class="concept-instrument-link">Характеристики <span aria-hidden="true">↗</span></span>
+            </div>
+            <img src="sem-50.jpg" alt="Рендер SEM-50 с операторским столом" width="1254" height="1254">
+          </a>
+          <a class="concept-instrument m-zoom" href="#tem-200">
+            <div class="concept-instrument-copy">
+              <span class="concept-kicker">ПЭМ · Структура</span>
+              <strong>TEM-200</strong>
+              <span class="concept-metric">До 200 кВ</span>
+              <span class="status">В разработке</span>
+              <span class="concept-instrument-link">Характеристики <span aria-hidden="true">↗</span></span>
+            </div>
+            <img src="sem-200.jpg?v=19" alt="Внешний вид установки TEM-200 из материалов проекта" width="1311" height="1200">
+          </a>
+        </div>
+      </div>
+    </section>
+  </template>
+
+  <template id="concept-hero-pilot">
+    <section class="hero concept-hero concept-pilot" data-enter aria-labelledby="home-heading">
+      <div class="shell concept-pilot-layout">
+        <div>
+          <p class="concept-kicker">Пилотное партнёрство · Зеленоград</p>
+          <h1 id="home-heading">От задачи <span class="concept-title-accent">до тестовой съёмки</span></h1>
+          <p class="concept-lead">Приглашаем лаборатории к апробации проектов <span class="concept-model-name">SEM-50</span> и <span class="concept-model-name">TEM-200</span>. Вместе определим метод исследования, режимы и критерии оценки изображения.</p>
+          <div class="hero-actions">
+            <button class="button button-primary btn" type="button" data-quote data-pilot>Обсудить задачу <span aria-hidden="true">→</span></button>
+            <a class="button button-outline" href="#process">Как проходит пилот</a>
+          </div>
+        </div>
+        <div class="concept-brief" data-enter-media>
+          <div class="concept-brief-heading">
+            <p class="concept-kicker">Пилот SEM-50 / TEM-200</p>
+            <h2>Что указать в заявке</h2>
+          </div>
+          <dl>
+            <div><dt>Образец</dt><dd>Материал, размер и текущая пробоподготовка.</dd></div>
+            <div><dt>Задача</dt><dd>Съёмка поверхности или анализ внутренней структуры.</dd></div>
+            <div><dt>Результат</dt><dd>Нужный масштаб, контраст и критерии качества.</dd></div>
+          </dl>
+        </div>
+      </div>
+    </section>
+  </template>
+
+  <template id="concept-story-flow">
+    <div class="story-flow">
+      <figure class="story-panel">
+        <img src="assets/electron-column.webp" alt="Концепт-рендер электронной колонны" width="1280" height="960" loading="lazy">
+        <figcaption class="story-panel-caption">
+          <span class="concept-kicker">Пилотное партнёрство</span>
+          <span class="story-step-name" data-story-step-name>Фиксируем задачу</span>
+          <span class="story-meter" aria-hidden="true"><span></span></span>
+          <span class="story-step-counter" data-story-step-counter>Этап 1 из 4</span>
+        </figcaption>
+      </figure>
+    </div>
+  </template>
 </body>
 </html>

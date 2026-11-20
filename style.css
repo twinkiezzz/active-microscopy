@@ -73,8 +73,8 @@
   --text: #334155;
   --muted: #52647a;
   --line: #dce4ee;
-  --accent: #005bb5;
-  --accent-hover: #00488f;
+  --accent: #173fc5;
+  --accent-hover: #103096;
   --signal: #a52339;
   --r: 12px;
   --wrap: min(1280px, calc(100% - 112px));
@@ -100,7 +100,7 @@ a { color: var(--accent); text-underline-offset: .23em; }
 button, input, textarea, select { color: inherit; font: inherit; }
 button, summary { cursor: pointer; }
 img { display: block; width: 100%; height: auto; }
-:where(a,button,summary,input,select,textarea):focus-visible { outline: 2px solid #2776be; outline-offset: 4px; }
+:where(a,button,summary,input,select,textarea):focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
 .shell, .wrap { width: var(--wrap); margin-inline: auto; min-width: 0; }
 .skip-link { position: fixed; z-index: 15; top: 8px; left: 8px; background: var(--white); padding: 12px 16px; transform: translateY(-150%); }
 .skip-link:focus { transform: none; }
@@ -138,14 +138,14 @@ img { display: block; width: 100%; height: auto; }
 
 .hero {
   --hero-ink: #0f172a;
-  --hero-accent: #0284c7;
-  --hero-accent-deep: #0369a1;
+  --hero-accent: var(--accent);
+  --hero-accent-deep: var(--accent-hover);
   --hero-mono: "JetBrains Mono", var(--font-mono);
   display: grid;
   align-items: center;
   min-height: calc(100svh - 79px);
   padding-block: clamp(44px, 6vw, 84px);
-  background: radial-gradient(ellipse 56% 80% at 89% 66%, #e0f2fe 0%, rgba(224,242,254,0) 83%), var(--white);
+  background: radial-gradient(ellipse 56% 80% at 89% 66%, #e9edff 0%, transparent 83%), var(--white);
 }
 .hero-layout {
   display: grid;
@@ -181,8 +181,7 @@ img { display: block; width: 100%; height: auto; }
 .hero-description strong { font-weight: 650; }
 .hero-project-status { margin-top: 10px; color: var(--muted); font-size: .875rem; }
 .hero-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 22px; }
-.hero-actions .button-primary { gap: 10px; background: #027ab8; }
-.hero-actions .button-primary:hover { background: var(--hero-accent-deep); }
+.hero-actions .button-primary { gap: 10px; }
 .hero-actions .button-outline { color: var(--hero-ink); }
 .hero-actions .button-outline:hover { border-color: var(--hero-accent); }
 .hero-points {
@@ -425,7 +424,7 @@ dialog::backdrop { background: rgb(30 41 59 / 38%); }
   .hero {
     min-height: auto;
     padding-block: 40px 36px;
-    background: radial-gradient(ellipse 75% 48% at 83% 91%, #e0f2fe, rgba(224,242,254,0) 90%), var(--white);
+    background: radial-gradient(ellipse 75% 48% at 83% 91%, #e9edff, transparent 90%), var(--white);
   }
   .hero-layout { grid-template-columns: minmax(0,1fr); grid-template-areas: "copy" "visual" "points"; }
   .hero h1 { font-size: clamp(2.5rem, 7.15vw, 4rem); }
@@ -489,6 +488,18 @@ dialog::backdrop { background: rgb(30 41 59 / 38%); }
   .config-list details[open] > :not(summary), dialog[open] {
     animation: settle 220ms cubic-bezier(.2,.75,.25,1) both;
   }
+  .is-reveal-pending { opacity: .16; translate: 0 14px; }
+  .has-revealed {
+    transition: opacity 260ms cubic-bezier(.23, 1, .32, 1) var(--reveal-delay, 0ms),
+                translate 260ms cubic-bezier(.23, 1, .32, 1) var(--reveal-delay, 0ms);
+  }
+  [data-scroll-reveal]:focus-within { opacity: 1; translate: none; transition: none; }
+}
+@media (min-width: 791px) {
+  :root:not([data-concept="pilot"]) .process-grid li:nth-child(2) { --reveal-delay: 35ms; }
+  :root:not([data-concept="pilot"]) .process-grid li:nth-child(3) { --reveal-delay: 70ms; }
+  :root:not([data-concept="pilot"]) .process-grid li:nth-child(4) { --reveal-delay: 105ms; }
+  .instrument-detail, .contact-layout > div + div { --reveal-delay: 40ms; }
 }
 
 .scroll-progress {
@@ -496,7 +507,7 @@ dialog::backdrop { background: rgb(30 41 59 / 38%); }
   z-index: 8;
   inset: 0 0 auto;
   height: 3px;
-  background: linear-gradient(90deg, #0870e4, #24b8ea, #80d8ef);
+  background: linear-gradient(90deg, var(--accent-hover), var(--accent) 80%, #3559e6);
   transform: scaleX(0);
   transform-origin: left center;
   pointer-events: none;
@@ -513,7 +524,7 @@ dialog::backdrop { background: rgb(30 41 59 / 38%); }
     pointer-events: none;
     opacity: 0;
     background: radial-gradient(ellipse 195px 135px at var(--spotlight-x, 50%) var(--spotlight-y, 50%),
-      #4398e02b, #184d8310 55%, transparent 100%);
+      #4364e82b, #173fc510 55%, transparent 100%);
     transition: opacity 180ms ease-out;
   }
 
