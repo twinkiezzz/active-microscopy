@@ -167,7 +167,7 @@ if ("ResizeObserver" in window) new ResizeObserver(updateScrollProgress).observe
 renderScrollProgress();
 
 const spotlightMedia = matchMedia("(hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference)");
-const spotlightSelector = ".hero-model, .image-link, .button-primary";
+const spotlightSelector = ".image-link, .button-primary";
 let spotlightTarget = null;
 let spotlightFrame = 0;
 let spotlightX = 0;

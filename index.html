@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Активная микроскопия в составе ГК «НТ-МДТ». Разработка электронных микроскопов SEM-50 и TEM-200 в Зеленограде, предварительные характеристики и пилотное тестирование.">
-  <meta name="theme-color" content="#f6f7f9">
+  <meta name="theme-color" content="#ffffff">
   <meta name="page-type" content="product">
   <meta name="site-kind" content="tech">
   <meta property="og:title" content="Активная микроскопия — электронные микроскопы">
@@ -12,12 +12,13 @@
   <meta property="og:image" content="https://twinkiezzz.github.io/active-microscopy/sem-200.jpg?v=19">
   <title>Активная микроскопия — разработка электронных микроскопов</title>
   <link rel="preload" href="fonts/ibm-plex-sans-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/inter-700-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="icon" type="image/png" sizes="48x48" href="favicon-amicro.png">
-  <link rel="stylesheet" href="style.css?v=24">
+  <link rel="stylesheet" href="style.css?v=25">
   <link rel="stylesheet" href="assets/motion/motion.css">
   <link rel="stylesheet" href="assets/moments/word-highlight/moment.css">
   <script>document.documentElement.classList.add('m-enter');setTimeout(()=>document.documentElement.classList.add('m-enter-done'),700)</script>
-  <script src="site.js?v=24" defer></script>
+  <script src="site.js?v=25" defer></script>
   <script type="module" src="assets/motion/motion.js"></script>
   <script type="module" src="assets/moments/moments.js"></script>
 </head>
@@ -43,29 +44,34 @@
   <main id="main" tabindex="-1">
     <section class="hero hero--product" data-enter aria-labelledby="home-heading">
       <div class="shell hero-layout">
-        <div class="hero-head">
-          <div>
-            <p class="status">Опытно-конструкторские разработки · Зеленоград</p>
-            <h1 id="home-heading">Отечественные электронные микроскопы под задачи вашей лаборатории</h1>
-          </div>
-          <div>
-            <p class="hero-description">Разрабатываем РЭМ и ПЭМ в Зеленограде в составе ГК&nbsp;«НТ‑МДТ». Приборы рассчитаны на задачи от анализа поверхности до исследования атомарной структуры. Ищем лаборатории для тестирования прототипов.</p>
-            <div class="hero-actions">
-              <a class="button button-primary btn" href="#compare">Сравнить модели</a>
-              <a class="button button-outline" href="specification.pdf?v=22" download="AMicro-SEM-50-TEM-200.pdf">Скачать спецификацию (PDF)</a>
-            </div>
+        <div class="hero-copy">
+          <p class="hero-eyebrow">НИОКР · Электронная оптика · ГК&nbsp;«НТ‑МДТ»</p>
+          <h1 id="home-heading">Сложная физика <span class="hero-heading-accent">в работающем приборе</span></h1>
+          <p class="hero-description">Полный цикл научно-исследовательских и опытно-конструкторских разработок растровых (РЭМ) и просвечивающих (ПЭМ) электронных микроскопов в Зеленограде — от проектирования <strong>электронно-оптических колонн</strong> и <strong>вакуумных систем</strong> до <strong>управляющего ПО</strong> и апробации в лабораториях.</p>
+          <p class="hero-project-status">SEM-50 и TEM-200 в разработке.</p>
+          <div class="hero-actions">
+            <button class="button button-primary btn" type="button" data-quote data-pilot>Обсудить задачу <span aria-hidden="true">→</span></button>
+            <a class="button button-outline" href="#catalog">Смотреть проекты</a>
           </div>
         </div>
-        <nav class="hero-stage" data-enter-media aria-label="Модели микроскопов">
-          <a class="hero-model card m-zoom" href="#sem-50">
-            <div class="hero-model-label"><strong>SEM-50</strong><span>Растровая микроскопия</span><small>Рендер внешнего вида</small></div>
-            <div class="hero-model-image"><img src="sem-50.jpg" alt="Рендер растрового микроскопа со столом управления" width="1254" height="1254" fetchpriority="high"></div>
-          </a>
-          <a class="hero-model card m-zoom" href="#tem-200">
-            <div class="hero-model-label"><strong>TEM-200</strong><span>Просвечивающая микроскопия</span><small>Фото из материалов проекта</small></div>
-            <div class="hero-model-image"><img src="sem-200.jpg?v=19" alt="Электронная колонна просвечивающего микроскопа" width="1311" height="1200"></div>
-          </a>
-        </nav>
+        <figure class="hero-visual" data-enter-media>
+          <div class="hero-render">
+            <img src="assets/electron-column.webp" alt="Концепт-рендер внешнего вида электронно-оптической колонны" width="1280" height="960" fetchpriority="high">
+          </div>
+          <div class="hero-callout hero-callout--precision">
+            <span class="hero-callout-label">Контур точности</span>
+            <span class="hero-callout-value">Концепт-рендер</span>
+          </div>
+          <div class="hero-callout hero-callout--beam">
+            <span class="hero-callout-label">Электронный тракт</span>
+            <span class="hero-callout-value">проектирование</span>
+          </div>
+        </figure>
+        <ul class="hero-points" aria-label="Направления разработок">
+          <li>Электронно-оптические системы</li>
+          <li>Цель — нанометровое разрешение</li>
+          <li>От ОКР до серии</li>
+        </ul>
       </div>
     </section>
 
@@ -118,7 +124,36 @@
                 <div><dt>Максимальная масса образца</dt><dd class="spec-value">0,5 кг</dd></div>
               </dl>
             </details>
-            <details><summary>Требования к установке</summary><p>Габариты, электропитание, требования к помещению и подготовке образцов уточняются.</p></details>
+            <details id="sem-50-supply">
+              <summary>Предварительная комплектация</summary>
+              <p>Справочный перечень из материалов EVO. Состав поставки SEM-50 уточняется.</p>
+              <ul class="technical-list">
+                <li>Базовый блок микроскопа в сборе.</li>
+                <li>Стол оператора, сдвоенный джойстик и панель управления.</li>
+                <li>Форвакуумный насос с ловушкой масляного тумана и вакуумным шлангом.</li>
+                <li>Управляющий компьютер с монитором. Состав ПО уточняется.</li>
+              </ul>
+            </details>
+            <details id="sem-50-installation">
+              <summary>Размещение и требования к помещению</summary>
+              <p>Ориентиры для планирования взяты из материалов EVO. Требования к установке SEM-50 уточняются.</p>
+              <dl class="specifications">
+                <div><dt>Размер помещения</dt><dd class="spec-value">4 × 5 × 2,5 м</dd></div>
+                <div><dt>Сервисная зона</dt><dd>Не менее <span class="spec-value">1 м</span> с каждой стороны прибора</dd></div>
+                <div><dt>Доставка до места монтажа</dt><dd>Проёмы от <span class="spec-value">0,8 м</span>, проход без лестниц</dd></div>
+                <div><dt>Электропитание</dt><dd><span class="spec-value">220 / 230 В, 50 Гц</span><br>Источник бесперебойного питания от <span class="spec-value">6 кВА</span></dd></div>
+                <div><dt>Температура</dt><dd><span class="spec-value">21 ± 4 °C</span>, изменение до <span class="spec-value">0,5 °C/ч</span></dd></div>
+                <div><dt>Относительная влажность</dt><dd>Менее <span class="spec-value">65%</span></dd></div>
+                <div><dt>Акустический шум</dt><dd><span class="spec-value">53 дБ</span> при 31,5–200 Гц<br><span class="spec-value">42 дБ</span> при 200–300 Гц<br><span class="spec-value">50 дБ</span> выше 300 Гц</dd></div>
+              </dl>
+              <p class="placement-note">Несущая способность пола, заземление, допустимые вибрации и электромагнитный фон согласовываются для площадки.</p>
+              <figure class="placement-figure">
+                <figcaption>Справочная схема размещения EVO. Вид сверху, размеры в миллиметрах.</figcaption>
+                <a class="image-link m-zoom" href="assets/sem-50-placement-reference.jpg" data-view aria-label="Увеличить справочную схему размещения EVO">
+                  <img src="assets/sem-50-placement-reference.jpg" alt="Схема размещения EVO с рабочим местом оператора, насосами и сервисными зазорами" width="587" height="433" loading="lazy">
+                </a>
+              </figure>
+            </details>
           </div>
         </div>
       </article>
@@ -188,7 +223,7 @@
             <tr role="row"><th scope="row" role="rowheader">Режимы</th><td role="cell">SE, BSE и переменный вакуум (VP)</td><td role="cell"><a href="#modes" data-open-details>Светлое и тёмное поле, микродифракция (SAED) и STEM</a></td></tr>
           </tbody>
         </table>
-        <a class="text-link" href="specification.pdf?v=22">Краткая спецификация проектов (PDF)</a>
+        <a class="text-link" href="specification.pdf?v=22" download="AMicro-SEM-50-TEM-200.pdf">Скачать спецификацию (PDF)</a>
       </div>
     </section>
 
