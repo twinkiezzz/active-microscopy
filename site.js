@@ -93,3 +93,43 @@ zoom.addEventListener("click", () => {
   zoom.textContent = enlarged ? "Уменьшить" : "Увеличить";
   if (!enlarged) viewport.scrollTo(0, 0);
 });
+
+const cursorGlow = document.querySelector(".cursor-glow");
+const glowMotion = window.matchMedia("(hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference)");
+let glowFrame = 0;
+let glowX = 0;
+let glowY = 0;
+
+function hideGlow() {
+  if (glowFrame) cancelAnimationFrame(glowFrame);
+  glowFrame = 0;
+  cursorGlow.classList.remove("is-visible");
+}
+
+function moveGlow(event) {
+  if (event.pointerType !== "mouse") return;
+  glowX = event.clientX;
+  glowY = event.clientY;
+  if (glowFrame) return;
+  glowFrame = requestAnimationFrame(() => {
+    glowFrame = 0;
+    cursorGlow.style.transform = "translate3d(" + glowX + "px," + glowY + "px,0)";
+    cursorGlow.classList.add("is-visible");
+  });
+}
+
+function updateGlow() {
+  if (glowMotion.matches) {
+    document.addEventListener("pointermove", moveGlow, { passive: true });
+    document.documentElement.addEventListener("pointerleave", hideGlow);
+    window.addEventListener("blur", hideGlow);
+  } else {
+    document.removeEventListener("pointermove", moveGlow);
+    document.documentElement.removeEventListener("pointerleave", hideGlow);
+    window.removeEventListener("blur", hideGlow);
+    hideGlow();
+  }
+}
+
+glowMotion.addEventListener("change", updateGlow);
+updateGlow();

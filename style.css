@@ -237,3 +237,77 @@ dialog::backdrop { background: #101d2db8; }
   .process-grid li > span { margin-bottom: 18px; }
   .process-grid h3 { font-size: 1.1rem; }
 }
+
+/* Brand accents and motion */
+:root {
+  --signal: #b52338;
+  --signal-paper: #fbf0f2;
+  --signal-line: #e6b8c0;
+}
+
+.cursor-glow-layer { position: fixed; inset: 0; z-index: 3; overflow: hidden; pointer-events: none; }
+
+.cursor-glow {
+  position: absolute;
+  inset: 0 auto auto 0;
+  width: 340px;
+  height: 340px;
+  margin: -170px 0 0 -170px;
+  pointer-events: none;
+  opacity: 0;
+  background: radial-gradient(circle at 40% 44%, #e644551b, transparent 63%),
+    radial-gradient(circle at 63% 56%, #2776be20, transparent 67%);
+  transition: opacity 220ms ease-out;
+}
+
+.status {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--signal);
+}
+
+.status::before {
+  content: "";
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+.hero-head > div:first-child::before {
+  content: "";
+  display: block;
+  width: 48px;
+  height: 3px;
+  margin-bottom: 18px;
+  background: var(--signal);
+}
+
+.hero-model { border-block-start: 3px solid var(--signal); }
+.hero-model:nth-child(2) { border-block-start-color: var(--accent); }
+.metric, .process-grid li > span { color: var(--signal); }
+
+.request-section {
+  background: var(--signal-paper);
+  border-block-color: var(--signal-line);
+}
+
+.comparison-table tbody tr { transition: background-color 180ms ease-out; }
+.comparison-table tbody tr:hover { background: #fdf7f8; }
+.instrument:target h3 { color: var(--accent); }
+
+@keyframes settle {
+  from { opacity: .55; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  .cursor-glow.is-visible { opacity: 1; }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .config-list details[open] > :not(summary), dialog[open] {
+    animation: settle 220ms cubic-bezier(.2,.75,.25,1) both;
+  }
+}
