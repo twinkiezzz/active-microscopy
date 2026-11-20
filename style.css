@@ -206,31 +206,13 @@ dialog::backdrop { background: #101d2db8; }
 .hero-layout { display: grid; grid-template-columns: minmax(0,.85fr) minmax(0,1.15fr); gap: clamp(24px,4vw,64px); align-items: center; }
 .hero-head { display: grid; grid-template-columns: minmax(0,1fr); align-items: start; margin: 0; gap: 20px; }
 .hero h1 { font-size: clamp(2.65rem,5.25vw,4.75rem); }
-.hero-actions { display: flex; flex-wrap: wrap; gap: 8px; }
 .hero-model-label { grid-template-columns: minmax(0,1fr); }
 .hero-model-label small { grid-column: 1; }
 .hero-model-image { height: clamp(210px,27vw,340px); }
 .section-intro { display: grid; grid-template-columns: minmax(0,1.1fr) minmax(0,.9fr); gap: 24px; align-items: end; margin-bottom: 28px; }
 .section-intro p { color: var(--muted); max-width: 48ch; }
-.visualization, .faq { padding-block: 72px; }
-.visualization-layout { display: grid; grid-template-columns: minmax(0,1.55fr) minmax(0,.65fr); gap: 16px; }
-.microscope-stage, .visualization-notes { min-width: 0; background: var(--white); border: 1px solid var(--line); border-radius: var(--r); overflow: hidden; }
-.model-frame { display: grid; place-items: center; position: relative; height: clamp(285px,45vw,500px); background: radial-gradient(ellipse at 45% 10%,#fbfdff,#e5edf6); }
-.model-fallback { width: 100%; height: 100%; padding: 16px; object-fit: contain; }
-.model-frame canvas { display: none; position: absolute; inset: 0; width: 100%; height: 100%; touch-action: pan-y; cursor: grab; }
-.model-frame canvas:focus-visible { outline-offset: -4px; }
-.model-frame canvas.dragging { cursor: grabbing; }
-.model-controls { display: none; gap: 6px; flex-wrap: wrap; padding: 10px; border-top: 1px solid var(--line); }
-.model-controls .button { min-width: 44px; min-height: 44px; padding-inline: 10px; }
-[data-microscope][data-ready] canvas { display: block; }
-[data-microscope][data-ready] .model-fallback { display: none; }
-[data-microscope][data-ready] .model-controls { display: flex; }
-.visualization-notes { padding: clamp(16px,2.5vw,28px); }
-.visualization-notes h3, .process-grid h3 { font-size: 1.38rem; }
-.visualization-notes dl { margin: 16px 0 4px; }
-.visualization-notes dl > div { border-top: 1px solid var(--line); padding-block: 12px; }
-.visualization-notes dt { font-weight: 650; }
-.visualization-notes dd { margin: 3px 0 0; color: var(--muted); }
+.faq { padding-block: 72px; }
+.process-grid h3 { font-size: 1.38rem; }
 .process { background: #f0f3f7; padding-block: 64px; border-block: 1px solid var(--line); }
 .process-grid { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); gap: 1px; overflow: hidden; background: var(--line); border: 1px solid var(--line); border-radius: var(--r); }
 .process-grid li { padding: clamp(16px,2.3vw,28px); background: var(--white); }
@@ -240,9 +222,9 @@ dialog::backdrop { background: #101d2db8; }
 .faq .config-list { max-width: 880px; }
 @media (max-width: 1020px) { .hero-layout { grid-template-columns: minmax(0,1fr); } .hero h1 { max-width: none; } }
 @media (max-width: 790px) {
-  .section-intro, .visualization-layout { grid-template-columns: minmax(0,1fr); }
+  .section-intro { grid-template-columns: minmax(0,1fr); }
   .process-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
-  .visualization, .process, .faq { padding-block: 44px; }
+  .process, .faq { padding-block: 44px; }
   .faq { padding-top: 0; }
 }
 @media (max-width: 620px) {

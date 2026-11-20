@@ -12,12 +12,11 @@
   <meta property="og:image" content="https://twinkiezzz.github.io/active-microscopy/sem-200.jpg">
   <title>Активная микроскопия — разработка электронных микроскопов</title>
   <link rel="preload" href="fonts/manrope-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="style.css?v=9">
+  <link rel="stylesheet" href="style.css?v=10">
   <link rel="stylesheet" href="assets/motion/motion.css">
   <link rel="stylesheet" href="assets/moments/word-highlight/moment.css">
   <script>document.documentElement.classList.add('m-enter');setTimeout(()=>document.documentElement.classList.add('m-enter-done'),700)</script>
   <script src="site.js?v=7" defer></script>
-  <script type="module" src="microscope-viewer.js?v=9"></script>
   <script type="module" src="assets/motion/motion.js"></script>
   <script type="module" src="assets/moments/moments.js"></script>
 </head>
@@ -27,7 +26,7 @@
     <div class="shell header-layout">
       <a class="brand" href="#top" aria-label="Активная микроскопия, главная"><span class="brand-mark" aria-hidden="true"></span><span>Активная<br>микроскопия</span></a>
       <nav class="primary-nav" aria-label="Основная навигация">
-        <a href="#catalog">Модели</a><a href="#visualization">3D-модель</a><a href="#process">Как работаем</a><a href="#about">О компании</a><a href="#contact">Контакты</a>
+        <a href="#catalog">Модели</a><a href="#process">Как работаем</a><a href="#about">О компании</a><a href="#contact">Контакты</a>
       </nav>
       <button class="button button-primary btn" type="button" data-quote>Обсудить проект</button>
     </div>
@@ -43,7 +42,7 @@
           </div>
           <div>
             <p class="hero-description">Два проекта для лабораторий. SEM-50 предназначен для исследования поверхности, а SEM-200 для изучения внутренней структуры образца.</p>
-            <div class="hero-actions"><a class="button button-primary btn" href="#visualization">Открыть 3D-модель</a><a class="button button-outline btn" href="#compare">Сравнить модели</a></div>
+            <a class="button button-primary btn" href="#compare">Сравнить модели</a>
           </div>
         </div>
         <nav class="hero-stage" data-enter-media aria-label="Модели микроскопов">
@@ -147,37 +146,6 @@
     </section>
 
 
-    <section class="visualization shell" id="visualization" aria-labelledby="visualization-heading">
-      <div class="section-intro">
-        <h2 id="visualization-heading">SEM-200 в 3D</h2>
-        <p>Схематичная модель по фотографии установки. Вращайте её, чтобы рассмотреть колонну, рабочее место и внешний блок.</p>
-      </div>
-      <div class="visualization-layout">
-        <div class="microscope-stage" data-microscope>
-          <div class="model-frame">
-            <img class="model-fallback" src="sem-200.jpg" alt="Установка SEM-200 из материалов проекта" width="495" height="453" loading="lazy">
-            <canvas tabindex="0" aria-label="Интерактивная 3D-модель SEM-200. Стрелки вращают модель, плюс и минус меняют масштаб, Home сбрасывает вид"></canvas>
-          </div>
-          <div class="model-controls" role="group" aria-label="Управление моделью">
-            <button class="button button-outline btn" type="button" data-model-control="left" aria-label="Повернуть влево">←</button>
-            <button class="button button-outline btn" type="button" data-model-control="right" aria-label="Повернуть вправо">→</button>
-            <button class="button button-outline btn" type="button" data-model-control="closer" aria-label="Увеличить">+</button>
-            <button class="button button-outline btn" type="button" data-model-control="farther" aria-label="Уменьшить">−</button>
-            <button class="button button-outline btn" type="button" data-model-control="reset">Сбросить вид</button>
-          </div>
-        </div>
-        <aside class="visualization-notes" aria-labelledby="model-parts-heading">
-          <h3 id="model-parts-heading">Что показано</h3>
-          <dl>
-            <div><dt>Электронная колонна</dt><dd>Вертикальный блок над областью образца.</dd></div>
-            <div><dt>Рабочее место</dt><dd>Два монитора и органы управления установкой.</dd></div>
-            <div><dt>Внешний блок</dt><dd>Расположен справа и соединён с верхней частью установки.</dd></div>
-          </dl>
-          <a class="text-link" href="sem-200.glb" download>Скачать 3D-модель (GLB)</a>
-        </aside>
-      </div>
-    </section>
-
     <section class="process" id="process" aria-labelledby="process-heading">
       <div class="shell">
         <div class="section-intro">
@@ -240,7 +208,7 @@
     <div class="shell footer-layout">
       <a class="brand" href="#top"><span class="brand-mark" aria-hidden="true"></span><span>Активная<br>микроскопия</span></a>
       <nav class="footer-nav" aria-label="Навигация в подвале">
-        <a href="#catalog">Модели</a><a href="#visualization">3D-модель</a><a href="#process">Как работаем</a><a href="#about">О компании</a><a href="#contact">Контакты</a>
+        <a href="#catalog">Модели</a><a href="#process">Как работаем</a><a href="#about">О компании</a><a href="#contact">Контакты</a>
       </nav>
       <p class="footer-legal">ООО «Активная микроскопия» · ИНН 7735215196 · КПП 773501001 · ОГРН 1267700362830</p>
     </div>
