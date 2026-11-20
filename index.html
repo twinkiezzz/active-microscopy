@@ -13,16 +13,15 @@
   <title>Активная микроскопия — разработка электронных микроскопов</title>
   <link rel="preload" href="fonts/manrope-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="icon" type="image/png" sizes="48x48" href="favicon-amicro.png">
-  <link rel="stylesheet" href="style.css?v=16">
+  <link rel="stylesheet" href="style.css?v=18">
   <link rel="stylesheet" href="assets/motion/motion.css">
   <link rel="stylesheet" href="assets/moments/word-highlight/moment.css">
   <script>document.documentElement.classList.add('m-enter');setTimeout(()=>document.documentElement.classList.add('m-enter-done'),700)</script>
-  <script src="site.js?v=14" defer></script>
+  <script src="site.js?v=18" defer></script>
   <script type="module" src="assets/motion/motion.js"></script>
   <script type="module" src="assets/moments/moments.js"></script>
 </head>
 <body id="top">
-  <div class="cursor-glow-layer" aria-hidden="true"><div class="cursor-glow"></div></div>
   <a class="skip-link" href="#main">К содержанию</a>
   <header class="site-header">
     <div class="shell header-layout">
@@ -65,7 +64,7 @@
 
       <article class="instrument" id="sem-50" aria-labelledby="sem-50-heading">
         <div class="instrument-summary">
-          <p class="method">Растровый электронный микроскоп</p>
+          <p class="method">Растровый (сканирующий) электронный микроскоп</p>
           <h3 id="sem-50-heading">SEM-50</h3>
           <p class="status">В разработке</p>
           <p class="instrument-use">Исследование поверхности и морфологии образцов.</p>
@@ -78,13 +77,37 @@
           <button class="button button-primary btn" type="button" data-quote="SEM-50">Сделать запрос</button>
         </div>
         <div class="instrument-detail">
-          <h4>Технические сведения</h4>
+          <h4>Технические характеристики</h4>
+          <p class="model-note">Предварительные данные</p>
           <dl class="specifications">
-            <div><dt>Метод</dt><dd>Растровая электронная микроскопия (РЭМ, SEM)</dd></div>
-            <div><dt>Характеристики</dt><dd>Параметры SEM-50 ещё не подтверждены.</dd></div>
+            <div><dt>Метод</dt><dd>Растровая (сканирующая) электронная микроскопия (РЭМ, SEM)</dd></div>
+            <div><dt>Источник электронов</dt><dd>Термоэмиссионная пушка с катодом из вольфрама или гексаборида лантана</dd></div>
+            <div><dt>Ускоряющее напряжение</dt><dd>0,5–30 кВ</dd></div>
+            <div><dt>Увеличение</dt><dd>15×–300 000×</dd></div>
+            <div><dt>Зондовый ток</dt><dd>0,5 пА – 5 мкА</dd></div>
+            <div><dt>Разрешение</dt><dd>3 нм при 30 кВ (SE-детектор)</dd></div>
+            <div><dt>Программное обеспечение</dt><dd>SmartSEM v5.04</dd></div>
           </dl>
           <div class="config-list">
-            <details><summary>Комплектация</summary><p>Публикация состава, детекторов и параметров столика запланирована после подтверждения конфигурации.</p></details>
+            <details>
+              <summary>Детекторы</summary>
+              <ul class="technical-list">
+                <li>Детектор вторичных электронов типа Эверхарта — Торнли (SE).</li>
+                <li>Четырёхсегментный полупроводниковый детектор отражённых электронов (BSE).</li>
+                <li>Детектор вторичных электронов для работы при переменном давлении (VPSE) с регистрацией катодолюминесценции.</li>
+              </ul>
+            </details>
+            <details>
+              <summary>Столик образцов</summary>
+              <p>Пятиосевой, полностью моторизованный.</p>
+              <dl class="specifications">
+                <div><dt>Ход по XY</dt><dd>130 мм</dd></div>
+                <div><dt>Ход по Z</dt><dd>50 мм</dd></div>
+                <div><dt>Наклон</dt><dd>от −10° до 90°</dd></div>
+                <div><dt>Вращение</dt><dd>360°</dd></div>
+                <div><dt>Максимальная масса образца</dt><dd>0,5 кг</dd></div>
+              </dl>
+            </details>
             <details><summary>Требования к установке</summary><p>Габариты, электропитание, требования к помещению и подготовке образцов уточняются.</p></details>
           </div>
         </div>
@@ -161,11 +184,6 @@
           <li><span aria-hidden="true">04</span><h3>Уточняем конфигурацию</h3><p>По результатам испытаний определяем режимы и требования к установке.</p></li>
         </ol>
       </div>
-    </section>
-
-    <section class="shell research" id="research" aria-labelledby="research-heading">
-      <h2 id="research-heading">Примеры исследований</h2>
-      <p>Микрофотографии будут опубликованы после получения проверенных данных. В подписи к каждому снимку укажем материал образца, режим съёмки и масштаб.</p>
     </section>
 
     <section class="shell faq" id="faq" aria-labelledby="faq-heading">
