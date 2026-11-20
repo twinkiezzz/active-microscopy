@@ -35,6 +35,10 @@
 }
 *, *::before, *::after { box-sizing: border-box; }
 html { scroll-padding-top: 88px; }
+
+@media (prefers-reduced-motion: no-preference) {
+  html { scroll-behavior: smooth; }
+}
 body { margin: 0; color: var(--ink); background: var(--bg); font: 400 1rem/1.55 var(--font-text); }
 h1, h2, h3, h4, p, figure { margin: 0; }
 h1, h2, h3, h4 { font-weight: var(--display-weight); letter-spacing: var(--display-tracking); line-height: 1.08; }
