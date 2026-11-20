@@ -7,8 +7,8 @@
   <meta name="theme-color" content="#f8f9fa">
   <title>Активная микроскопия — разработка электронных микроскопов</title>
   <link rel="preload" href="fonts/golos-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="style.css?v=6">
-  <script src="site.js?v=5" defer></script>
+  <link rel="stylesheet" href="style.css?v=7">
+  <script src="site.js?v=7" defer></script>
 </head>
 <body id="top">
   <a class="skip-link" href="#main">К содержанию</a>
@@ -28,7 +28,7 @@
         <div class="hero-copy">
           <p class="status">В разработке</p>
           <h1 id="home-heading">Электронные<br>микроскопы</h1>
-          <p class="hero-description">Разрабатываем растровый и просвечивающий микроскопы для исследовательских лабораторий.</p>
+          <p class="hero-description">Разрабатываем два электронных микроскопа для лабораторий. Один изучает поверхность образца, второй — его внутреннюю структуру.</p>
           <a class="button button-primary" href="#compare">Сравнить модели</a>
         </div>
         <nav class="hero-models" aria-label="Модели микроскопов">
@@ -38,14 +38,14 @@
           </a>
           <a class="hero-model" href="#sem-200">
             <div class="hero-model-image"><img src="sem-200.jpg" alt="" width="495" height="453"></div>
-            <div class="hero-model-label"><strong>SEM-200</strong><span>Внутренняя структура образца</span><small>Из материалов проекта</small></div>
+            <div class="hero-model-label"><strong>SEM-200</strong><span>Анализ внутренней структуры</span><small>Фото из материалов проекта</small></div>
           </a>
         </nav>
       </div>
     </section>
 
     <section class="catalog shell" id="catalog" aria-labelledby="catalog-heading">
-      <div class="catalog-header"><h2 id="catalog-heading">Два метода микроскопии</h2></div>
+      <div class="catalog-header"><h2 id="catalog-heading">Проекты микроскопов</h2></div>
 
       <article class="instrument" id="sem-50" aria-labelledby="sem-50-heading">
         <div class="instrument-summary">
@@ -53,7 +53,7 @@
           <h3 id="sem-50-heading">SEM-50</h3>
           <p class="status">В разработке</p>
           <p class="instrument-use">Исследование поверхности и морфологии образцов.</p>
-          <figure class="instrument-figure instrument-figure-sem50" data-reveal>
+          <figure class="instrument-figure instrument-figure-sem50">
             <a class="image-link" href="sem-50.jpg" data-view aria-label="Увеличить рендер SEM-50">
               <img src="sem-50.jpg" alt="Рендер внешнего вида SEM-50" width="1254" height="1254" loading="lazy">
             </a>
@@ -63,7 +63,7 @@
         </div>
         <div class="instrument-detail">
           <h4>Технические сведения</h4>
-          <dl class="specifications" data-reveal>
+          <dl class="specifications">
             <div><dt>Метод</dt><dd>Растровая электронная микроскопия (РЭМ, SEM)</dd></div>
             <div><dt>Характеристики</dt><dd>Параметры SEM-50 ещё не подтверждены.</dd></div>
           </dl>
@@ -80,7 +80,7 @@
           <h3 id="sem-200-heading">SEM-200</h3>
           <p class="status">В разработке</p>
           <p class="instrument-use">Исследование внутренней структуры тонких образцов.</p>
-          <figure class="instrument-figure" data-reveal>
+          <figure class="instrument-figure">
             <a class="image-link" href="sem-200.jpg" data-view aria-label="Увеличить изображение установки SEM-200">
               <img src="sem-200.jpg" alt="Электронная колонна, рабочая станция и блок оборудования" width="495" height="453" loading="lazy">
             </a>
@@ -91,7 +91,7 @@
         <div class="instrument-detail">
           <h4 id="specifications">Технические сведения</h4>
           <p class="model-note">SEM-200 — рабочее обозначение проекта. По типу это просвечивающий электронный микроскоп (ПЭМ, TEM).</p>
-          <dl class="specifications" data-reveal>
+          <dl class="specifications">
             <div><dt>Режимы работы</dt><dd><strong class="metric">5</strong> в предварительном описании</dd></div>
             <div><dt>Электропитание</dt><dd>380 / 220 В, 50 Гц по предварительным данным</dd></div>
           </dl>
@@ -116,7 +116,7 @@
     </section>
 
     <section class="comparison" id="compare" aria-labelledby="compare-heading">
-      <div class="shell" data-reveal>
+      <div class="shell">
         <h2 id="compare-heading">Сравнение проектов</h2>
         <table class="comparison-table">
           <thead><tr><th scope="col">Параметр</th><th scope="col">SEM-50</th><th scope="col">SEM-200</th></tr></thead>
@@ -131,7 +131,7 @@
       </div>
     </section>
 
-    <section class="shell research" id="research" aria-labelledby="research-heading" data-reveal>
+    <section class="shell research" id="research" aria-labelledby="research-heading">
       <h2 id="research-heading">Примеры исследований</h2>
       <p>Микрофотографии будут опубликованы после получения проверенных данных. В подписи к каждому снимку укажем материал образца, режим съёмки и масштаб.</p>
     </section>
@@ -145,7 +145,7 @@
 
     <div class="company-section">
       <div class="shell company-layout">
-        <section id="about" aria-labelledby="about-heading" data-reveal>
+        <section id="about" aria-labelledby="about-heading">
           <h2 id="about-heading">О компании</h2>
           <p class="company-name">Мы — молодая команда из Зеленограда, которая разрабатывает электронные микроскопы. Начинаем с задач лабораторий: какие образцы они изучают, какие режимы им нужны и как они будут работать с прибором. Параметры публикуем после подтверждения.</p>
           <div class="config-list">
@@ -154,7 +154,7 @@
             <details><summary>Команда</summary><p>С командой из Зеленограда можно связаться и обсудить задачи вашей лаборатории.</p></details>
           </div>
         </section>
-        <section id="contact" aria-labelledby="contact-heading" data-reveal>
+        <section id="contact" aria-labelledby="contact-heading">
           <h2 id="contact-heading">Контакты</h2>
           <dl class="contact-list">
             <div><dt>Почта</dt><dd><a href="mailto:info@amicro.ru">info@amicro.ru</a></dd></div>

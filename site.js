@@ -93,14 +93,3 @@ zoom.addEventListener("click", () => {
   zoom.textContent = enlarged ? "Уменьшить" : "Увеличить";
   if (!enlarged) viewport.scrollTo(0, 0);
 });
-
-if ("IntersectionObserver" in window && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-  const reveal = new IntersectionObserver(entries => {
-    for (const entry of entries) {
-      if (!entry.isIntersecting) continue;
-      entry.target.classList.add("reveal-in");
-      reveal.unobserve(entry.target);
-    }
-  }, { threshold: 0.12 });
-  document.querySelectorAll("[data-reveal]").forEach(element => reveal.observe(element));
-}
