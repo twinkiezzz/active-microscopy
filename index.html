@@ -12,11 +12,12 @@
   <meta property="og:image" content="https://twinkiezzz.github.io/active-microscopy/sem-200.jpg">
   <title>Активная микроскопия — разработка электронных микроскопов</title>
   <link rel="preload" href="fonts/manrope-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="style.css?v=8">
+  <link rel="stylesheet" href="style.css?v=9">
   <link rel="stylesheet" href="assets/motion/motion.css">
   <link rel="stylesheet" href="assets/moments/word-highlight/moment.css">
   <script>document.documentElement.classList.add('m-enter');setTimeout(()=>document.documentElement.classList.add('m-enter-done'),700)</script>
   <script src="site.js?v=7" defer></script>
+  <script type="module" src="microscope-viewer.js?v=9"></script>
   <script type="module" src="assets/motion/motion.js"></script>
   <script type="module" src="assets/moments/moments.js"></script>
 </head>
@@ -26,7 +27,7 @@
     <div class="shell header-layout">
       <a class="brand" href="#top" aria-label="Активная микроскопия, главная"><span class="brand-mark" aria-hidden="true"></span><span>Активная<br>микроскопия</span></a>
       <nav class="primary-nav" aria-label="Основная навигация">
-        <a href="#catalog">Модели</a><a href="#compare">Сравнение</a><a href="#about">О компании</a><a href="#contact">Контакты</a>
+        <a href="#catalog">Модели</a><a href="#visualization">3D-модель</a><a href="#process">Как работаем</a><a href="#about">О компании</a><a href="#contact">Контакты</a>
       </nav>
       <button class="button button-primary btn" type="button" data-quote>Обсудить проект</button>
     </div>
@@ -34,7 +35,7 @@
 
   <main id="main" tabindex="-1">
     <section class="hero hero--product" data-enter aria-labelledby="home-heading">
-      <div class="shell">
+      <div class="shell hero-layout">
         <div class="hero-head">
           <div>
             <p class="status">Обе модели в разработке</p>
@@ -42,7 +43,7 @@
           </div>
           <div>
             <p class="hero-description">Два проекта для лабораторий. SEM-50 предназначен для исследования поверхности, а SEM-200 для изучения внутренней структуры образца.</p>
-            <a class="button button-primary btn" href="#compare">Сравнить модели</a>
+            <div class="hero-actions"><a class="button button-primary btn" href="#visualization">Открыть 3D-модель</a><a class="button button-outline btn" href="#compare">Сравнить модели</a></div>
           </div>
         </div>
         <nav class="hero-stage" data-enter-media aria-label="Модели микроскопов">
@@ -145,9 +146,65 @@
       </div>
     </section>
 
+
+    <section class="visualization shell" id="visualization" aria-labelledby="visualization-heading">
+      <div class="section-intro">
+        <h2 id="visualization-heading">SEM-200 в 3D</h2>
+        <p>Схематичная модель по фотографии установки. Вращайте её, чтобы рассмотреть колонну, рабочее место и внешний блок.</p>
+      </div>
+      <div class="visualization-layout">
+        <div class="microscope-stage" data-microscope>
+          <div class="model-frame">
+            <img class="model-fallback" src="sem-200.jpg" alt="Установка SEM-200 из материалов проекта" width="495" height="453" loading="lazy">
+            <canvas tabindex="0" aria-label="Интерактивная 3D-модель SEM-200. Стрелки вращают модель, плюс и минус меняют масштаб, Home сбрасывает вид"></canvas>
+          </div>
+          <div class="model-controls" role="group" aria-label="Управление моделью">
+            <button class="button button-outline btn" type="button" data-model-control="left" aria-label="Повернуть влево">←</button>
+            <button class="button button-outline btn" type="button" data-model-control="right" aria-label="Повернуть вправо">→</button>
+            <button class="button button-outline btn" type="button" data-model-control="closer" aria-label="Увеличить">+</button>
+            <button class="button button-outline btn" type="button" data-model-control="farther" aria-label="Уменьшить">−</button>
+            <button class="button button-outline btn" type="button" data-model-control="reset">Сбросить вид</button>
+          </div>
+        </div>
+        <aside class="visualization-notes" aria-labelledby="model-parts-heading">
+          <h3 id="model-parts-heading">Что показано</h3>
+          <dl>
+            <div><dt>Электронная колонна</dt><dd>Вертикальный блок над областью образца.</dd></div>
+            <div><dt>Рабочее место</dt><dd>Два монитора и органы управления установкой.</dd></div>
+            <div><dt>Внешний блок</dt><dd>Расположен справа и соединён с верхней частью установки.</dd></div>
+          </dl>
+          <a class="text-link" href="sem-200.glb" download>Скачать 3D-модель (GLB)</a>
+        </aside>
+      </div>
+    </section>
+
+    <section class="process" id="process" aria-labelledby="process-heading">
+      <div class="shell">
+        <div class="section-intro">
+          <h2 id="process-heading">Как работаем над проектом</h2>
+          <p>План разработки обсуждаем с лабораторией. Начинаем с образца и результата, который нужно получить.</p>
+        </div>
+        <ol class="process-grid">
+          <li><span aria-hidden="true">01</span><h3>Описываем задачу</h3><p>Уточняем материал, размеры образца и условия исследования.</p></li>
+          <li><span aria-hidden="true">02</span><h3>Подбираем метод</h3><p>Определяем, нужна ли съёмка поверхности или анализ внутренней структуры.</p></li>
+          <li><span aria-hidden="true">03</span><h3>Планируем испытания</h3><p>Выбираем образцы и критерии для проверки прототипа.</p></li>
+          <li><span aria-hidden="true">04</span><h3>Уточняем конфигурацию</h3><p>По результатам испытаний определяем режимы и требования к установке.</p></li>
+        </ol>
+      </div>
+    </section>
+
     <section class="shell research" id="research" aria-labelledby="research-heading">
       <h2 id="research-heading">Примеры исследований</h2>
       <p>Микрофотографии будут опубликованы после получения проверенных данных. В подписи к каждому снимку укажем материал образца, режим съёмки и масштаб.</p>
+    </section>
+
+    <section class="shell faq" id="faq" aria-labelledby="faq-heading">
+      <div class="section-intro"><h2 id="faq-heading">Частые вопросы</h2></div>
+      <div class="config-list">
+        <details><summary>На каком этапе находятся микроскопы?</summary><p>SEM-50 и SEM-200 в разработке. Сайт показывает их назначение и предварительные сведения.</p></details>
+        <details><summary>Как выбрать модель для своего образца?</summary><p>Для исследования поверхности рассмотрите SEM-50, для внутренней структуры тонкого образца — SEM-200. Окончательные требования к пробоподготовке уточняются.</p></details>
+        <details><summary>Что указать в первом письме?</summary><p>Расскажите о материале и размере образца, желаемом результате и доступных условиях в лаборатории.</p></details>
+      </div>
     </section>
 
     <section class="request-section" id="quote-request" aria-labelledby="request-heading">
@@ -183,7 +240,7 @@
     <div class="shell footer-layout">
       <a class="brand" href="#top"><span class="brand-mark" aria-hidden="true"></span><span>Активная<br>микроскопия</span></a>
       <nav class="footer-nav" aria-label="Навигация в подвале">
-        <a href="#catalog">Модели</a><a href="#compare">Сравнение</a><a href="#about">О компании</a><a href="#contact">Контакты</a>
+        <a href="#catalog">Модели</a><a href="#visualization">3D-модель</a><a href="#process">Как работаем</a><a href="#about">О компании</a><a href="#contact">Контакты</a>
       </nav>
       <p class="footer-legal">ООО «Активная микроскопия» · ИНН 7735215196 · КПП 773501001 · ОГРН 1267700362830</p>
     </div>
