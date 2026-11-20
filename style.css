@@ -246,8 +246,6 @@ dialog::backdrop { background: #101d2db8; }
 /* Brand accents and motion */
 :root {
   --signal: #b52338;
-  --signal-paper: #fbf0f2;
-  --signal-line: #e6b8c0;
 }
 
 .status {
@@ -278,11 +276,6 @@ dialog::backdrop { background: #101d2db8; }
 .hero-model:nth-child(2) { border-block-start-color: var(--accent); }
 .metric, .process-grid li > span { color: var(--signal); }
 
-.request-section {
-  background: var(--signal-paper);
-  border-block-color: var(--signal-line);
-}
-
 .comparison-table tbody tr { transition: background-color 180ms ease-out; }
 .comparison-table tbody tr:hover { background: #fdf7f8; }
 .instrument:target h3 { color: var(--accent); }
@@ -296,4 +289,38 @@ dialog::backdrop { background: #101d2db8; }
   .config-list details[open] > :not(summary), dialog[open] {
     animation: settle 220ms cubic-bezier(.2,.75,.25,1) both;
   }
+}
+
+.scroll-progress {
+  position: fixed;
+  z-index: 8;
+  inset: 0 0 auto;
+  height: 3px;
+  background: linear-gradient(90deg, #0870e4, #24b8ea, #80d8ef);
+  transform: scaleX(0);
+  transform-origin: left center;
+  pointer-events: none;
+}
+
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  :is(.hero-model, .image-link, .button-primary) { position: relative; }
+
+  :is(.hero-model, .image-link, .button-primary)::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    pointer-events: none;
+    opacity: 0;
+    background: radial-gradient(ellipse 195px 135px at var(--spotlight-x, 50%) var(--spotlight-y, 50%),
+      #4398e02b, #184d8310 55%, transparent 100%);
+    transition: opacity 180ms ease-out;
+  }
+
+  .button-primary::after {
+    background: radial-gradient(ellipse 90px 55px at var(--spotlight-x, 50%) var(--spotlight-y, 50%),
+      #d9efff42, transparent 100%);
+  }
+
+  .has-spotlight::after { opacity: 1; }
 }
