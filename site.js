@@ -1,21 +1,29 @@
-const quote = document.querySelector("#quote");
-const form = quote.querySelector("form");
-const feedback = quote.querySelector(".feedback");
+const dialog = document.querySelector("#quote");
+const form = document.querySelector("#quote-form");
+const modelField = form.elements.namedItem("model");
+const nameField = form.elements.namedItem("name");
+const feedback = form.querySelector(".form-status");
+const articleNumbers = new Map([["SEM-200", "SEM200"]]);
 
 document.querySelectorAll("[data-quote]").forEach(button => {
   button.addEventListener("click", () => {
+    modelField.value = button.dataset.quote;
     feedback.textContent = "";
-    quote.showModal();
+    dialog.showModal();
+    (modelField.value ? nameField : modelField).focus();
   });
 });
-quote.querySelector(".close").addEventListener("click", () => quote.close());
+
+dialog.querySelector(".dialog-close").addEventListener("click", () => dialog.close());
 
 form.addEventListener("submit", event => {
   event.preventDefault();
   const fields = new FormData(form);
+  const model = fields.get("model");
+  const article = articleNumbers.get(model);
   const draft = [
-    "Запрос коммерческого предложения на SEM-200",
-    "Артикул SEM200",
+    "Запрос коммерческого предложения на " + model,
+    ...(article ? ["Артикул " + article] : []),
     "",
     "Имя: " + fields.get("name").trim(),
     "Организация: " + fields.get("company").trim(),
@@ -26,13 +34,14 @@ form.addEventListener("submit", event => {
     "",
     "Просьба уточнить цену, доступную комплектацию и сроки поставки."
   ].join("\r\n");
-  const url = URL.createObjectURL(new Blob(["\uFEFF", draft], {type: "text/plain;charset=utf-8"}));
-  const link = document.createElement("a");
-  link.href = url;
-  link.download = "Запрос-КП-SEM-200.txt";
-  document.body.append(link);
-  link.click();
-  link.remove();
+
+  const url = URL.createObjectURL(new Blob(["\uFEFF", draft], { type: "text/plain;charset=utf-8" }));
+  const download = document.createElement("a");
+  download.href = url;
+  download.download = "Запрос-КП-" + model + ".txt";
+  document.body.append(download);
+  download.click();
+  download.remove();
   setTimeout(() => URL.revokeObjectURL(url), 1000);
-  feedback.textContent = "Текст запроса подготовлен. Проверьте загрузки браузера.";
+  feedback.textContent = "Запрос подготовлен. Проверьте загрузки браузера.";
 });
