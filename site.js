@@ -1,27 +1,3 @@
-function mountConceptPreview() {
-  const concept = new URLSearchParams(window.location.search).get("concept");
-  const template = document.getElementById("concept-hero-" + concept);
-  if (!(template instanceof HTMLTemplateElement)) return;
-
-  document.documentElement.dataset.concept = concept;
-  document.querySelector(".hero").replaceWith(template.content.cloneNode(true));
-  const navigation = document.getElementById("concept-preview-navigation").content.cloneNode(true);
-  const currentLink = [...navigation.querySelectorAll("a")].find(link => link.getAttribute("href") === "?concept=" + concept);
-  currentLink.setAttribute("aria-current", "page");
-  document.querySelector(".site-header").before(navigation);
-
-  if (concept === "pilot") {
-    const process = document.querySelector("#process");
-    const steps = process.querySelector(".process-grid");
-    const flow = document.getElementById("concept-story-flow").content.firstElementChild.cloneNode(true);
-    steps.before(flow);
-    flow.append(steps);
-    document.querySelector("#catalog").before(process);
-  }
-}
-
-mountConceptPreview();
-
 const dialog = document.querySelector("#quote");
 const form = document.querySelector("#quote-form");
 const modelField = form.elements.namedItem("model");
@@ -45,13 +21,15 @@ if (endpoint) {
   copyButton.hidden = true;
 }
 
-document.querySelectorAll("[data-quote]").forEach(button => {
-  button.addEventListener("click", () => {
+document.querySelectorAll("[data-quote]").forEach(link => {
+  link.addEventListener("click", event => {
+    if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey || !dialog.showModal) return;
+    event.preventDefault();
     if (!quoteFields.disabled) {
-      const pilot = button.hasAttribute("data-pilot");
+      const pilot = link.hasAttribute("data-pilot");
       title.textContent = pilot ? "Пилотное партнёрство" : "Обсудить проект";
       topic = pilot ? "Пилотное партнёрство" : "Вопрос о микроскопах";
-      modelField.value = button.dataset.quote;
+      modelField.value = link.dataset.quote;
       feedback.textContent = "";
       fallback.hidden = true;
       copyButton.hidden = Boolean(endpoint);
@@ -137,12 +115,13 @@ copyButton.addEventListener("click", async () => {
   }
 });
 
-document.querySelectorAll("[data-open-details]").forEach(link => {
-  link.addEventListener("click", () => {
-    const details = document.querySelector(link.hash + " details");
-    if (details) details.open = true;
-  });
-});
+const modes = document.querySelector("#modes details");
+function openLinkedModes() {
+  if (location.hash === "#modes") modes.open = true;
+}
+document.querySelector("[data-open-details]").addEventListener("click", () => { modes.open = true; });
+window.addEventListener("hashchange", openLinkedModes);
+openLinkedModes();
 
 const viewer = document.querySelector("#viewer");
 const viewerTitle = viewer.querySelector("h2");
@@ -151,7 +130,7 @@ const zoom = viewer.querySelector("[data-zoom]");
 const viewport = viewer.querySelector(".image-viewport");
 document.querySelectorAll("[data-view]").forEach(link => {
   link.addEventListener("click", event => {
-    if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+    if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey || !viewer.showModal) return;
     event.preventDefault();
     const image = link.querySelector("img");
     viewerTitle.textContent = image.alt;
@@ -161,6 +140,7 @@ document.querySelectorAll("[data-view]").forEach(link => {
     zoom.setAttribute("aria-pressed", "false");
     zoom.textContent = "Увеличить";
     viewer.showModal();
+    viewport.scrollTo(0, 0);
   });
 });
 zoom.addEventListener("click", () => {
@@ -170,37 +150,7 @@ zoom.addEventListener("click", () => {
   if (!enlarged) viewport.scrollTo(0, 0);
 });
 
-function createStoryProgress() {
-  const flow = document.querySelector(".story-flow");
-  if (!flow) return null;
-
-  const steps = [...flow.querySelectorAll(".process-grid li")];
-  const stepName = flow.querySelector("[data-story-step-name]");
-  const stepCounter = flow.querySelector("[data-story-step-counter]");
-  const meter = flow.querySelector(".story-meter > span");
-  let current = -1;
-
-  return () => {
-    const activationLine = window.innerHeight * .48;
-    let step = 0;
-    for (let index = 1; index < steps.length; index++) {
-      if (steps[index].getBoundingClientRect().top > activationLine) break;
-      step = index;
-    }
-    if (step === current) return;
-
-    if (current >= 0) steps[current].removeAttribute("aria-current");
-    steps[step].setAttribute("aria-current", "step");
-    stepName.textContent = steps[step].querySelector("h3").textContent;
-    stepCounter.textContent = "Этап " + (step + 1) + " из " + steps.length;
-    const progress = (step + 1) / steps.length;
-    meter.style.transform = "scaleX(" + progress + ")";
-    current = step;
-  };
-}
-
 const scrollProgress = document.querySelector(".scroll-progress");
-const updateStoryProgress = createStoryProgress();
 let scrollFrame = 0;
 
 function renderScrollProgress() {
@@ -208,7 +158,6 @@ function renderScrollProgress() {
   const root = document.documentElement;
   const distance = root.scrollHeight - root.clientHeight;
   const fraction = distance > 0 ? Math.max(0, Math.min(1, window.scrollY / distance)) : 0;
-  updateStoryProgress?.();
   scrollProgress.style.transform = "scaleX(" + fraction + ")";
 }
 
@@ -220,83 +169,3 @@ window.addEventListener("scroll", updateScrollProgress, { passive: true });
 window.addEventListener("resize", updateScrollProgress, { passive: true });
 if ("ResizeObserver" in window) new ResizeObserver(updateScrollProgress).observe(document.body);
 renderScrollProgress();
-
-function bindScrollReveals() {
-  const preference = matchMedia("(prefers-reduced-motion: no-preference)");
-  if (!preference.matches || !("IntersectionObserver" in window)) return;
-
-  const pending = new Set();
-  const observer = new IntersectionObserver(entries => {
-    for (const entry of entries) {
-      if (entry.isIntersecting || entry.boundingClientRect.bottom <= 0) reveal(entry.target);
-    }
-  });
-
-  function reveal(target) {
-    if (!pending.delete(target)) return;
-    observer.unobserve(target);
-    target.classList.add("has-revealed");
-    target.classList.remove("is-reveal-pending");
-  }
-
-  requestAnimationFrame(() => {
-    if (!preference.matches) return;
-    const belowViewport = [...document.querySelectorAll("[data-scroll-reveal]")]
-      .filter(target => target.getBoundingClientRect().top > window.innerHeight);
-    for (const target of belowViewport) {
-      target.classList.add("is-reveal-pending");
-      pending.add(target);
-      observer.observe(target);
-    }
-  });
-
-  document.addEventListener("focusin", event => {
-    const target = event.target.closest?.(".is-reveal-pending");
-    if (target) reveal(target);
-  });
-  preference.addEventListener("change", () => {
-    if (!preference.matches) pending.forEach(reveal);
-  });
-}
-
-bindScrollReveals();
-
-const spotlightMedia = matchMedia("(hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference)");
-const spotlightSelector = ".image-link, .button-primary";
-let spotlightTarget = null;
-let spotlightFrame = 0;
-let spotlightX = 0;
-let spotlightY = 0;
-
-function clearSpotlight() {
-  if (spotlightFrame) cancelAnimationFrame(spotlightFrame);
-  spotlightFrame = 0;
-  spotlightTarget?.classList.remove("has-spotlight");
-  spotlightTarget = null;
-}
-
-document.addEventListener("pointermove", event => {
-  if (!spotlightMedia.matches || event.pointerType !== "mouse" || !(event.target instanceof Element)) return;
-  const target = event.target.closest(spotlightSelector);
-  if (!target) { clearSpotlight(); return; }
-  if (target !== spotlightTarget) {
-    clearSpotlight();
-    spotlightTarget = target;
-  }
-  spotlightX = event.clientX;
-  spotlightY = event.clientY;
-  if (spotlightFrame) return;
-  spotlightFrame = requestAnimationFrame(() => {
-    spotlightFrame = 0;
-    if (!spotlightTarget) return;
-    const rect = spotlightTarget.getBoundingClientRect();
-    spotlightTarget.style.setProperty("--spotlight-x", (spotlightX - rect.left) + "px");
-    spotlightTarget.style.setProperty("--spotlight-y", (spotlightY - rect.top) + "px");
-    spotlightTarget.classList.add("has-spotlight");
-  });
-}, { passive: true });
-
-document.documentElement.addEventListener("pointerleave", clearSpotlight);
-window.addEventListener("blur", clearSpotlight);
-window.addEventListener("scroll", clearSpotlight, { passive: true });
-spotlightMedia.addEventListener("change", clearSpotlight);
